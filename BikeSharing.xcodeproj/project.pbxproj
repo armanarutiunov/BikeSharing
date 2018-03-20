@@ -9,19 +9,132 @@
 /* Begin PBXBuildFile section */
 		0120EA252061A1750039907D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA242061A1750039907D /* AppDelegate.swift */; };
 		0120EA272061A1750039907D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA262061A1750039907D /* ViewController.swift */; };
-		0120EA2A2061A1750039907D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120EA282061A1750039907D /* Main.storyboard */; };
 		0120EA2C2061A1750039907D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0120EA2B2061A1750039907D /* Assets.xcassets */; };
 		0120EA2F2061A1750039907D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0120EA2D2061A1750039907D /* LaunchScreen.storyboard */; };
+		0120EA442061A1980039907D /* ModelLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0120EA3B2061A1980039907D /* ModelLayer.framework */; };
+		0120EA4B2061A1980039907D /* ModelLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA4A2061A1980039907D /* ModelLayerTests.swift */; };
+		0120EA4D2061A1980039907D /* ModelLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0120EA3D2061A1980039907D /* ModelLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0120EA502061A1980039907D /* ModelLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0120EA3B2061A1980039907D /* ModelLayer.framework */; };
+		0120EA512061A1980039907D /* ModelLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0120EA3B2061A1980039907D /* ModelLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0120EA622061A1AB0039907D /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0120EA602061A1AB0039907D /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0120EA652061A1AB0039907D /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0120EA5E2061A1AB0039907D /* DataLayer.framework */; };
+		0120EA662061A1AB0039907D /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0120EA5E2061A1AB0039907D /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0120EA6D2061AE490039907D /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA6C2061AE490039907D /* Scene.swift */; };
+		0120EA6F2061AF020039907D /* DataLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA6E2061AF020039907D /* DataLayerAssembly.swift */; };
+		0120EA712061AF2B0039907D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA702061AF2B0039907D /* Application.swift */; };
+		0120EA742061B0090039907D /* RootScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA732061B0090039907D /* RootScene.swift */; };
+		0120EA782061B4A80039907D /* ErrorWithRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA772061B4A80039907D /* ErrorWithRecovery.swift */; };
+		0120EA7A2061B6360039907D /* BaseNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA792061B6360039907D /* BaseNavigator.swift */; };
+		0120EA7F2061B6C70039907D /* ControlEvent+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA7E2061B6C70039907D /* ControlEvent+Extras.swift */; };
+		0120EA812061B7330039907D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA802061B7330039907D /* ActivityIndicator.swift */; };
+		0120EA832061B7520039907D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA822061B7520039907D /* Presenter.swift */; };
+		0120EA852061B77A0039907D /* ViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA842061B77A0039907D /* ViewIO.swift */; };
+		0120EA872061B8220039907D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA862061B8220039907D /* main.swift */; };
+		0120EA8A2061B84E0039907D /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA892061B84E0039907D /* TestingAppDelegate.swift */; };
+		0120EA8C2061B8810039907D /* Colors+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA8B2061B8810039907D /* Colors+Extras.swift */; };
+		0120EA932061BA2E0039907D /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA922061BA2E0039907D /* Interactor.swift */; };
+		0120EA972061BAE80039907D /* Executors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA962061BAE80039907D /* Executors.swift */; };
+		0120EA992061BB530039907D /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EA982061BB530039907D /* DomainError.swift */; };
+		0120EAAA2061C4E30039907D /* BikesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAA92061C4E30039907D /* BikesAPI.swift */; };
+		0120EAAC2061C97A0039907D /* Response+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAAB2061C97A0039907D /* Response+Parse.swift */; };
+		23035E74BF7669743864C593 /* Pods_ModelLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DE7DAD5AB9B6536A96A33 /* Pods_ModelLayer.framework */; };
+		28D6BEDE2DD187038A315584 /* Pods_BikeSharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350F0EAF75CAB663D3A036A1 /* Pods_BikeSharing.framework */; };
+		BEE5FEBF22CACC5A8D4C60D0 /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4728195AF08F86C5417457B4 /* Pods_DataLayer.framework */; };
+		CA4654EF2A3493A185C987BE /* Pods_ModelLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC6F81400A6A9496077C48B /* Pods_ModelLayerTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0120EA452061A1980039907D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0120EA192061A1740039907D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0120EA3A2061A1980039907D;
+			remoteInfo = ModelLayer;
+		};
+		0120EA472061A1980039907D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0120EA192061A1740039907D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0120EA202061A1750039907D;
+			remoteInfo = BikeSharing;
+		};
+		0120EA4E2061A1980039907D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0120EA192061A1740039907D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0120EA3A2061A1980039907D;
+			remoteInfo = ModelLayer;
+		};
+		0120EA632061A1AB0039907D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0120EA192061A1740039907D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0120EA5D2061A1AB0039907D;
+			remoteInfo = DataLayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0120EA552061A1980039907D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0120EA662061A1AB0039907D /* DataLayer.framework in Embed Frameworks */,
+				0120EA512061A1980039907D /* ModelLayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0120EA212061A1750039907D /* BikeSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0120EA242061A1750039907D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0120EA262061A1750039907D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0120EA292061A1750039907D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0120EA2B2061A1750039907D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0120EA2E2061A1750039907D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0120EA302061A1750039907D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0120EA3B2061A1980039907D /* ModelLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModelLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0120EA3D2061A1980039907D /* ModelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelLayer.h; sourceTree = "<group>"; };
+		0120EA3E2061A1980039907D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0120EA432061A1980039907D /* ModelLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0120EA4A2061A1980039907D /* ModelLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLayerTests.swift; sourceTree = "<group>"; };
+		0120EA4C2061A1980039907D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0120EA5E2061A1AB0039907D /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0120EA602061A1AB0039907D /* DataLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLayer.h; sourceTree = "<group>"; };
+		0120EA612061A1AB0039907D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0120EA6C2061AE490039907D /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		0120EA6E2061AF020039907D /* DataLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerAssembly.swift; sourceTree = "<group>"; };
+		0120EA702061AF2B0039907D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		0120EA732061B0090039907D /* RootScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScene.swift; sourceTree = "<group>"; };
+		0120EA772061B4A80039907D /* ErrorWithRecovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWithRecovery.swift; sourceTree = "<group>"; };
+		0120EA792061B6360039907D /* BaseNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigator.swift; sourceTree = "<group>"; };
+		0120EA7E2061B6C70039907D /* ControlEvent+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlEvent+Extras.swift"; sourceTree = "<group>"; };
+		0120EA802061B7330039907D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		0120EA822061B7520039907D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		0120EA842061B77A0039907D /* ViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIO.swift; sourceTree = "<group>"; };
+		0120EA862061B8220039907D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0120EA892061B84E0039907D /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		0120EA8B2061B8810039907D /* Colors+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extras.swift"; sourceTree = "<group>"; };
+		0120EA922061BA2E0039907D /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		0120EA962061BAE80039907D /* Executors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executors.swift; sourceTree = "<group>"; };
+		0120EA982061BB530039907D /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		0120EAA92061C4E30039907D /* BikesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikesAPI.swift; sourceTree = "<group>"; };
+		0120EAAB2061C97A0039907D /* Response+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Parse.swift"; sourceTree = "<group>"; };
+		0BC6F81400A6A9496077C48B /* Pods_ModelLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E69D2EEFA003394D3D2631E /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
+		350F0EAF75CAB663D3A036A1 /* Pods_BikeSharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC30ED01F101FC8C79E1221 /* Pods-ModelLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelLayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ModelLayer/Pods-ModelLayer.debug.xcconfig"; sourceTree = "<group>"; };
+		3CD66B10AB413A7C6F5F6E2D /* Pods-ModelLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelLayerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelLayerTests/Pods-ModelLayerTests.release.xcconfig"; sourceTree = "<group>"; };
+		3E3E048F26C6423CB8BE36D2 /* Pods-ModelLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelLayerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ModelLayerTests/Pods-ModelLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		43B42C30944C88B381827027 /* Pods-ModelLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelLayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelLayer/Pods-ModelLayer.release.xcconfig"; sourceTree = "<group>"; };
+		4728195AF08F86C5417457B4 /* Pods_DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		759837239DC25554D9CF5164 /* Pods-BikeSharing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSharing.release.xcconfig"; path = "Pods/Target Support Files/Pods-BikeSharing/Pods-BikeSharing.release.xcconfig"; sourceTree = "<group>"; };
+		7C0DE7DAD5AB9B6536A96A33 /* Pods_ModelLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C600CEA0E07378479E4F7033 /* Pods-BikeSharing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSharing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BikeSharing/Pods-BikeSharing.debug.xcconfig"; sourceTree = "<group>"; };
+		EE5E85901877A659BE9676CE /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +142,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0120EA652061A1AB0039907D /* DataLayer.framework in Frameworks */,
+				0120EA502061A1980039907D /* ModelLayer.framework in Frameworks */,
+				28D6BEDE2DD187038A315584 /* Pods_BikeSharing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA372061A1980039907D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23035E74BF7669743864C593 /* Pods_ModelLayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA402061A1980039907D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120EA442061A1980039907D /* ModelLayer.framework in Frameworks */,
+				CA4654EF2A3493A185C987BE /* Pods_ModelLayerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA5A2061A1AB0039907D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE5FEBF22CACC5A8D4C60D0 /* Pods_DataLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +180,12 @@
 			isa = PBXGroup;
 			children = (
 				0120EA232061A1750039907D /* BikeSharing */,
+				0120EA3C2061A1980039907D /* ModelLayer */,
+				0120EA492061A1980039907D /* ModelLayerTests */,
+				0120EA5F2061A1AB0039907D /* DataLayer */,
 				0120EA222061A1750039907D /* Products */,
+				8A3A2226DBFCA344C896ED3F /* Pods */,
+				027E2CFF9C81117FAF8D7B9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				0120EA212061A1750039907D /* BikeSharing.app */,
+				0120EA3B2061A1980039907D /* ModelLayer.framework */,
+				0120EA432061A1980039907D /* ModelLayerTests.xctest */,
+				0120EA5E2061A1AB0039907D /* DataLayer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,9 +203,11 @@
 		0120EA232061A1750039907D /* BikeSharing */ = {
 			isa = PBXGroup;
 			children = (
-				0120EA242061A1750039907D /* AppDelegate.swift */,
-				0120EA262061A1750039907D /* ViewController.swift */,
-				0120EA282061A1750039907D /* Main.storyboard */,
+				0120EA6A2061ADCB0039907D /* Application */,
+				0120EA752061B1FC0039907D /* Base */,
+				0120EA882061B83E0039907D /* Misc */,
+				0120EA722061AFFD0039907D /* Scenes */,
+				0120EA7B2061B6960039907D /* Extensions */,
 				0120EA2B2061A1750039907D /* Assets.xcassets */,
 				0120EA2D2061A1750039907D /* LaunchScreen.storyboard */,
 				0120EA302061A1750039907D /* Info.plist */,
@@ -64,25 +215,316 @@
 			path = BikeSharing;
 			sourceTree = "<group>";
 		};
+		0120EA3C2061A1980039907D /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA762061B49B0039907D /* Base */,
+				0120EA8D2061B8EC0039907D /* UserStories */,
+				0120EA8E2061B9140039907D /* Domain */,
+				0120EA3D2061A1980039907D /* ModelLayer.h */,
+				0120EA3E2061A1980039907D /* Info.plist */,
+			);
+			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		0120EA492061A1980039907D /* ModelLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA4A2061A1980039907D /* ModelLayerTests.swift */,
+				0120EA4C2061A1980039907D /* Info.plist */,
+			);
+			path = ModelLayerTests;
+			sourceTree = "<group>";
+		};
+		0120EA5F2061A1AB0039907D /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0120EAA62061C1680039907D /* Network */,
+				0120EAA52061C15D0039907D /* Stubs */,
+				0120EA602061A1AB0039907D /* DataLayer.h */,
+				0120EA612061A1AB0039907D /* Info.plist */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		0120EA6A2061ADCB0039907D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA6B2061ADD90039907D /* DI */,
+				0120EA242061A1750039907D /* AppDelegate.swift */,
+				0120EA862061B8220039907D /* main.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0120EA6B2061ADD90039907D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA6C2061AE490039907D /* Scene.swift */,
+				0120EA6E2061AF020039907D /* DataLayerAssembly.swift */,
+				0120EA702061AF2B0039907D /* Application.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		0120EA722061AFFD0039907D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA732061B0090039907D /* RootScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0120EA752061B1FC0039907D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA262061A1750039907D /* ViewController.swift */,
+				0120EA792061B6360039907D /* BaseNavigator.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0120EA762061B49B0039907D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA842061B77A0039907D /* ViewIO.swift */,
+				0120EA822061B7520039907D /* Presenter.swift */,
+				0120EA922061BA2E0039907D /* Interactor.swift */,
+				0120EA802061B7330039907D /* ActivityIndicator.swift */,
+				0120EA772061B4A80039907D /* ErrorWithRecovery.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0120EA7B2061B6960039907D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA7E2061B6C70039907D /* ControlEvent+Extras.swift */,
+				0120EA8B2061B8810039907D /* Colors+Extras.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0120EA882061B83E0039907D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA892061B84E0039907D /* TestingAppDelegate.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		0120EA8D2061B8EC0039907D /* UserStories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserStories;
+			sourceTree = "<group>";
+		};
+		0120EA8E2061B9140039907D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA952061BA6B0039907D /* Entity */,
+				0120EA942061BA590039907D /* Error */,
+				0120EA912061BA050039907D /* Execution */,
+				0120EA8F2061B9F80039907D /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		0120EA8F2061B9F80039907D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0120EA912061BA050039907D /* Execution */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA962061BAE80039907D /* Executors.swift */,
+			);
+			path = Execution;
+			sourceTree = "<group>";
+		};
+		0120EA942061BA590039907D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0120EA982061BB530039907D /* DomainError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		0120EA952061BA6B0039907D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		0120EAA52061C15D0039907D /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		0120EAA62061C1680039907D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0120EAA82061C4D80039907D /* Real */,
+				0120EAA72061C4D40039907D /* API */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0120EAA72061C4D40039907D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0120EAA92061C4E30039907D /* BikesAPI.swift */,
+				0120EAAB2061C97A0039907D /* Response+Parse.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		0120EAA82061C4D80039907D /* Real */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Real;
+			sourceTree = "<group>";
+		};
+		027E2CFF9C81117FAF8D7B9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				350F0EAF75CAB663D3A036A1 /* Pods_BikeSharing.framework */,
+				4728195AF08F86C5417457B4 /* Pods_DataLayer.framework */,
+				7C0DE7DAD5AB9B6536A96A33 /* Pods_ModelLayer.framework */,
+				0BC6F81400A6A9496077C48B /* Pods_ModelLayerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A3A2226DBFCA344C896ED3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C600CEA0E07378479E4F7033 /* Pods-BikeSharing.debug.xcconfig */,
+				759837239DC25554D9CF5164 /* Pods-BikeSharing.release.xcconfig */,
+				EE5E85901877A659BE9676CE /* Pods-DataLayer.debug.xcconfig */,
+				1E69D2EEFA003394D3D2631E /* Pods-DataLayer.release.xcconfig */,
+				3AC30ED01F101FC8C79E1221 /* Pods-ModelLayer.debug.xcconfig */,
+				43B42C30944C88B381827027 /* Pods-ModelLayer.release.xcconfig */,
+				3E3E048F26C6423CB8BE36D2 /* Pods-ModelLayerTests.debug.xcconfig */,
+				3CD66B10AB413A7C6F5F6E2D /* Pods-ModelLayerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0120EA382061A1980039907D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120EA4D2061A1980039907D /* ModelLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA5B2061A1AB0039907D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120EA622061A1AB0039907D /* DataLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		0120EA202061A1750039907D /* BikeSharing */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0120EA332061A1750039907D /* Build configuration list for PBXNativeTarget "BikeSharing" */;
 			buildPhases = (
+				E6245BF98EC6E5E49DC981E0 /* [CP] Check Pods Manifest.lock */,
 				0120EA1D2061A1750039907D /* Sources */,
 				0120EA1E2061A1750039907D /* Frameworks */,
 				0120EA1F2061A1750039907D /* Resources */,
+				0120EA552061A1980039907D /* Embed Frameworks */,
+				588F274A43D387F461E76DA7 /* [CP] Embed Pods Frameworks */,
+				8780F5B41EABEE4D99E58734 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0120EA4F2061A1980039907D /* PBXTargetDependency */,
+				0120EA642061A1AB0039907D /* PBXTargetDependency */,
 			);
 			name = BikeSharing;
 			productName = BikeSharing;
 			productReference = 0120EA212061A1750039907D /* BikeSharing.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0120EA3A2061A1980039907D /* ModelLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0120EA522061A1980039907D /* Build configuration list for PBXNativeTarget "ModelLayer" */;
+			buildPhases = (
+				DCDF8E97D9731F282B6850DC /* [CP] Check Pods Manifest.lock */,
+				0120EA362061A1980039907D /* Sources */,
+				0120EA372061A1980039907D /* Frameworks */,
+				0120EA382061A1980039907D /* Headers */,
+				0120EA392061A1980039907D /* Resources */,
+				10E28049FAD794164919AF26 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModelLayer;
+			productName = ModelLayer;
+			productReference = 0120EA3B2061A1980039907D /* ModelLayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0120EA422061A1980039907D /* ModelLayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0120EA562061A1980039907D /* Build configuration list for PBXNativeTarget "ModelLayerTests" */;
+			buildPhases = (
+				226AF79B61FEFF01206FBC3F /* [CP] Check Pods Manifest.lock */,
+				0120EA3F2061A1980039907D /* Sources */,
+				0120EA402061A1980039907D /* Frameworks */,
+				0120EA412061A1980039907D /* Resources */,
+				20E17CD02B5BF871634F019E /* [CP] Embed Pods Frameworks */,
+				79CC807BC2BA250207293697 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0120EA462061A1980039907D /* PBXTargetDependency */,
+				0120EA482061A1980039907D /* PBXTargetDependency */,
+			);
+			name = ModelLayerTests;
+			productName = ModelLayerTests;
+			productReference = 0120EA432061A1980039907D /* ModelLayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0120EA5D2061A1AB0039907D /* DataLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0120EA672061A1AB0039907D /* Build configuration list for PBXNativeTarget "DataLayer" */;
+			buildPhases = (
+				E44148A6FA0F50B568EA44D0 /* [CP] Check Pods Manifest.lock */,
+				0120EA592061A1AB0039907D /* Sources */,
+				0120EA5A2061A1AB0039907D /* Frameworks */,
+				0120EA5B2061A1AB0039907D /* Headers */,
+				0120EA5C2061A1AB0039907D /* Resources */,
+				5627CC2DEBD7AB84D788D76F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DataLayer;
+			productName = DataLayer;
+			productReference = 0120EA5E2061A1AB0039907D /* DataLayer.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -96,6 +538,21 @@
 				TargetAttributes = {
 					0120EA202061A1750039907D = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					0120EA3A2061A1980039907D = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					0120EA422061A1980039907D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0120EA202061A1750039907D;
+					};
+					0120EA5D2061A1AB0039907D = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -114,6 +571,9 @@
 			projectRoot = "";
 			targets = (
 				0120EA202061A1750039907D /* BikeSharing */,
+				0120EA3A2061A1980039907D /* ModelLayer */,
+				0120EA422061A1980039907D /* ModelLayerTests */,
+				0120EA5D2061A1AB0039907D /* DataLayer */,
 			);
 		};
 /* End PBXProject section */
@@ -125,33 +585,306 @@
 			files = (
 				0120EA2F2061A1750039907D /* LaunchScreen.storyboard in Resources */,
 				0120EA2C2061A1750039907D /* Assets.xcassets in Resources */,
-				0120EA2A2061A1750039907D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA392061A1980039907D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA412061A1980039907D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA5C2061A1AB0039907D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10E28049FAD794164919AF26 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelLayer/Pods-ModelLayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20E17CD02B5BF871634F019E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ModelLayerTests/Pods-ModelLayerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelLayerTests/Pods-ModelLayerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		226AF79B61FEFF01206FBC3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ModelLayerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5627CC2DEBD7AB84D788D76F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		588F274A43D387F461E76DA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BikeSharing/Pods-BikeSharing-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya-Gloss/Moya_Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BikeSharing/Pods-BikeSharing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79CC807BC2BA250207293697 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelLayerTests/Pods-ModelLayerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8780F5B41EABEE4D99E58734 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BikeSharing/Pods-BikeSharing-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BikeSharing/Pods-BikeSharing-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCDF8E97D9731F282B6850DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ModelLayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E44148A6FA0F50B568EA44D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DataLayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6245BF98EC6E5E49DC981E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BikeSharing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0120EA1D2061A1750039907D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0120EA712061AF2B0039907D /* Application.swift in Sources */,
+				0120EA7F2061B6C70039907D /* ControlEvent+Extras.swift in Sources */,
+				0120EA872061B8220039907D /* main.swift in Sources */,
 				0120EA272061A1750039907D /* ViewController.swift in Sources */,
+				0120EA8C2061B8810039907D /* Colors+Extras.swift in Sources */,
+				0120EA6F2061AF020039907D /* DataLayerAssembly.swift in Sources */,
+				0120EA8A2061B84E0039907D /* TestingAppDelegate.swift in Sources */,
 				0120EA252061A1750039907D /* AppDelegate.swift in Sources */,
+				0120EA742061B0090039907D /* RootScene.swift in Sources */,
+				0120EA7A2061B6360039907D /* BaseNavigator.swift in Sources */,
+				0120EA6D2061AE490039907D /* Scene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA362061A1980039907D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120EA832061B7520039907D /* Presenter.swift in Sources */,
+				0120EA812061B7330039907D /* ActivityIndicator.swift in Sources */,
+				0120EA972061BAE80039907D /* Executors.swift in Sources */,
+				0120EA932061BA2E0039907D /* Interactor.swift in Sources */,
+				0120EA852061B77A0039907D /* ViewIO.swift in Sources */,
+				0120EA992061BB530039907D /* DomainError.swift in Sources */,
+				0120EA782061B4A80039907D /* ErrorWithRecovery.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA3F2061A1980039907D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120EA4B2061A1980039907D /* ModelLayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0120EA592061A1AB0039907D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120EAAC2061C97A0039907D /* Response+Parse.swift in Sources */,
+				0120EAAA2061C4E30039907D /* BikesAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		0120EA282061A1750039907D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0120EA292061A1750039907D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		0120EA462061A1980039907D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0120EA3A2061A1980039907D /* ModelLayer */;
+			targetProxy = 0120EA452061A1980039907D /* PBXContainerItemProxy */;
 		};
+		0120EA482061A1980039907D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0120EA202061A1750039907D /* BikeSharing */;
+			targetProxy = 0120EA472061A1980039907D /* PBXContainerItemProxy */;
+		};
+		0120EA4F2061A1980039907D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0120EA3A2061A1980039907D /* ModelLayer */;
+			targetProxy = 0120EA4E2061A1980039907D /* PBXContainerItemProxy */;
+		};
+		0120EA642061A1AB0039907D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0120EA5D2061A1AB0039907D /* DataLayer */;
+			targetProxy = 0120EA632061A1AB0039907D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		0120EA2D2061A1750039907D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,7 +1005,9 @@
 		};
 		0120EA342061A1750039907D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C600CEA0E07378479E4F7033 /* Pods-BikeSharing.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42934LX6SX;
@@ -287,7 +1022,9 @@
 		};
 		0120EA352061A1750039907D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 759837239DC25554D9CF5164 /* Pods-BikeSharing.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42934LX6SX;
@@ -297,6 +1034,146 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0120EA532061A1980039907D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC30ED01F101FC8C79E1221 /* Pods-ModelLayer.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 42934LX6SX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ModelLayer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.armanarutyunov.ModelLayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0120EA542061A1980039907D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43B42C30944C88B381827027 /* Pods-ModelLayer.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 42934LX6SX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ModelLayer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.armanarutyunov.ModelLayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0120EA572061A1980039907D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3E048F26C6423CB8BE36D2 /* Pods-ModelLayerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42934LX6SX;
+				INFOPLIST_FILE = ModelLayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.armanarutyunov.ModelLayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeSharing.app/BikeSharing";
+			};
+			name = Debug;
+		};
+		0120EA582061A1980039907D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CD66B10AB413A7C6F5F6E2D /* Pods-ModelLayerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42934LX6SX;
+				INFOPLIST_FILE = ModelLayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.armanarutyunov.ModelLayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeSharing.app/BikeSharing";
+			};
+			name = Release;
+		};
+		0120EA682061A1AB0039907D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5E85901877A659BE9676CE /* Pods-DataLayer.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 42934LX6SX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DataLayer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.armanarutyunov.DataLayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0120EA692061A1AB0039907D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E69D2EEFA003394D3D2631E /* Pods-DataLayer.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 42934LX6SX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DataLayer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.armanarutyunov.DataLayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -317,6 +1194,33 @@
 			buildConfigurations = (
 				0120EA342061A1750039907D /* Debug */,
 				0120EA352061A1750039907D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0120EA522061A1980039907D /* Build configuration list for PBXNativeTarget "ModelLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0120EA532061A1980039907D /* Debug */,
+				0120EA542061A1980039907D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0120EA562061A1980039907D /* Build configuration list for PBXNativeTarget "ModelLayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0120EA572061A1980039907D /* Debug */,
+				0120EA582061A1980039907D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0120EA672061A1AB0039907D /* Build configuration list for PBXNativeTarget "DataLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0120EA682061A1AB0039907D /* Debug */,
+				0120EA692061A1AB0039907D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
