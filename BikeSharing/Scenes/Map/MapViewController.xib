@@ -32,7 +32,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.3432888454861111" green="0.42805989583333331" blue="0.81233723958333337" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="7w7-Dg-thy"/>
                         <constraint firstItem="Mqf-Xw-oGG" firstAttribute="centerY" secondItem="68p-9r-A7d" secondAttribute="centerY" id="AGM-dj-dmv"/>
@@ -52,7 +51,7 @@
                             <rect key="frame" x="248" y="0.0" width="47" height="44"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="Look">
-                                <color key="titleColor" red="0.43593642115592957" green="0.51337963342666626" blue="0.82356303930282593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="titleColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are on a ride for 09:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQj-ag-VQN">
@@ -62,7 +61,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.690253377" green="0.87432998419999997" blue="0.2217158377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.34509803919999998" green="0.77647058820000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="rQj-ag-VQN" firstAttribute="centerY" secondItem="PLP-7h-2sI" secondAttribute="centerY" id="2G3-Jl-OQx"/>
                         <constraint firstItem="ebl-as-GBo" firstAttribute="top" secondItem="PLP-7h-2sI" secondAttribute="top" id="30z-Di-CUf"/>
@@ -86,7 +85,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.43593642115592957" green="0.51337963342666626" blue="0.82356303930282593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="68p-9r-A7d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1Kg-mH-dok"/>
                 <constraint firstItem="PLP-7h-2sI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2NP-ge-Hgn"/>

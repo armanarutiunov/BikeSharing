@@ -13,21 +13,21 @@ public class StubStationService: StationService {
     public init() {}
     
     public func getStations() -> Observable<[Station]> {
-        let bikes = [Bike(id: 23985742, name: "Kona", frameColor: .black),
-                     Bike(id: 23948723, name: "KHS", frameColor: .green),
-                     Bike(id: 23942934, name: "Giant", frameColor: .red),
-                     Bike(id: 45867944, name: "Bianchi", frameColor: .red),
-                     Bike(id: 20572984, name: "Electra", frameColor: .green),
-                     Bike(id: 01875398, name: "Fuji", frameColor: .black),
-                     Bike(id: 13466346, name: "Cinelli", frameColor: .black),
-                     Bike(id: 13644039, name: "Foffa", frameColor: .green),
-                     Bike(id: 24643631, name: "Haro", frameColor: .red),
-                     Bike(id: 51342959, name: "Bianchi", frameColor: .black),
-                     Bike(id: 98345395, name: "Electra", frameColor: .red),
-                     Bike(id: 37458328, name: "KHS", frameColor: .green),
-                     Bike(id: 36134507, name: "Fuji", frameColor: .green),
-                     Bike(id: 19326549, name: "Foffa", frameColor: .black),
-                     Bike(id: 43810565, name: "Giant", frameColor: .red)]
+        let bikes = [Bike(id: 23985742, name: "Kona", frameColor: .blue, pin: 2342),
+                     Bike(id: 23948723, name: "KHS", frameColor: .green, pin: 2874),
+                     Bike(id: 23942934, name: "Giant", frameColor: .red, pin: 2956),
+                     Bike(id: 45867944, name: "Bianchi", frameColor: .red, pin: 6037),
+                     Bike(id: 20572984, name: "Electra", frameColor: .green, pin: 0381),
+                     Bike(id: 01875398, name: "Fuji", frameColor: .blue, pin: 5810),
+                     Bike(id: 13466346, name: "Cinelli", frameColor: .blue, pin: 5830),
+                     Bike(id: 13644039, name: "Foffa", frameColor: .green, pin: 4927),
+                     Bike(id: 24643631, name: "Haro", frameColor: .red, pin: 5939),
+                     Bike(id: 51342959, name: "Bianchi", frameColor: .blue, pin: 5838),
+                     Bike(id: 98345395, name: "Electra", frameColor: .red, pin: 2959),
+                     Bike(id: 37458328, name: "KHS", frameColor: .green, pin: 4894),
+                     Bike(id: 36134507, name: "Fuji", frameColor: .green, pin: 3976),
+                     Bike(id: 19326549, name: "Foffa", frameColor: .blue, pin: 2840),
+                     Bike(id: 43810565, name: "Giant", frameColor: .red, pin: 0568)]
         
         let stations = [
             Station(id: 24028,

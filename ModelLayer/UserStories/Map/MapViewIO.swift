@@ -6,10 +6,15 @@
 //  Copyright © 2018 Arman Arutyunov. All rights reserved.
 //
 
+import RxCocoa
+
 public protocol MapViewIO: ViewIO {
     
     /// Booking timer finished
     var timerFinished: Action { get }
+    
+    /// User tapped station
+    var stationTapped: Driver<Station> { get }
     
     /// Show stations on the map
     func showStations(_ stations: [Station])

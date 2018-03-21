@@ -10,16 +10,17 @@ public struct Bike {
     public let id: Int
     public let name: String
     public let frameColor: FrameColor
-    public var pin: Int?
+    public let pin: Int
     public let icon = #imageLiteral(resourceName: "bike")
     
-    public init(id: Int, name: String, frameColor: FrameColor) {
+    public init(id: Int, name: String, frameColor: FrameColor, pin: Int) {
         self.id = id
         self.name = name
         self.frameColor = frameColor
+        self.pin = pin
     }
 }
 
 public enum FrameColor {
-    case black, red, green
+    case blue, red, green
 }

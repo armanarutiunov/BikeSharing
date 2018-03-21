@@ -1,5 +1,5 @@
 //
-//  MapSceneNavigator.swift
+//  StationSceneNavigator.swift
 //  BikeSharing
 //
 //  Created by Arman Arutyunov on 21/03/2018.
@@ -8,9 +8,9 @@
 
 import ModelLayer
 
-class MapSceneNavigator: BaseNavigator, MapNavigator {
-    func toStation(_ station: Station) {
-        scene.push(StationScene(station: station))
+class StationSceneNavigator: BaseNavigator, StationNavigator {
+    func back() {
+        scene.pop()
     }
     
     func toBooking() {

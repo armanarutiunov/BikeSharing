@@ -10,6 +10,34 @@ import UIKit
 
 extension UIColor {
     
+    class var greenBike: UIColor {
+        return UIColor(0xB0DF39)
+    }
+    
+    class var redBike: UIColor {
+        return UIColor(0xFF6F74)
+    }
+    
+    class var cobiBlue: UIColor {
+        return UIColor(0x58c6e2)
+    }
+    
+    class var disabledButton: UIColor {
+        return UIColor(0x58c6e2, alpha: 0.3)
+    }
+    
+    func toImage(size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContext(rect.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(cgColor)
+            context.fill(rect)
+        }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
     // RGB Hex Init
     
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {

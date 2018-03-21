@@ -36,8 +36,12 @@ extension MapViewController: MapViewIO {
         return statusView.timerFinishSignal.asDriver(onErrorDriveWith: .never())
     }
     
+    var stationTapped: Driver<Station> {
+        return stationTappedSignal.asDriver(onErrorDriveWith: .never())
+    }
+    
     func showStations(_ stations: [Station]) {
-        createMarkers(stations)
+        createMarkers(for: stations)
     }
     
     func updateStatus(state: State, time: TimeInterval?) {
@@ -65,14 +69,16 @@ extension MapViewController {
         let position = CLLocationCoordinate2D(latitude: 50.142695, longitude: 8.660534)
         mapView.camera = GMSCameraPosition.camera(withTarget: position, zoom: 12)
         locationManager.requestWhenInUseAuthorization()
+        mapView.delegate = self
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
     }
     
-    private func createMarkers(_ stations: [Station]) {
+    private func createMarkers(for stations: [Station]) {
         stations.forEach { station in
             let position = CLLocationCoordinate2D(latitude: station.location.latitude, longitude: station.location.longtitude)
             let marker = GMSMarker(position: position)
+            marker.icon = GMSMarker.markerImage(with: UIColor.cobiBlue)
             marker.map = mapView
             marker.userData = station
         }
