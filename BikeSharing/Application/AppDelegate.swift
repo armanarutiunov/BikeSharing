@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyASdxaVbY4WRIDh6kPAD9-lYzydIb13Xjw")
         window = Application.configure(UIWindow(frame: UIScreen.main.bounds))

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Arman Arutyunov. All rights reserved.
 //
 
+import RxSwift
+
 public class MapPresenter<V: MapViewIO>: Presenter<V> {
     
     private let interactor: MapInteractor
@@ -16,4 +18,26 @@ public class MapPresenter<V: MapViewIO>: Presenter<V> {
         self.navigator = navigator
     }
     
+    override func setup() {
+        
+    }
+    
+    override func viewAttached() -> Disposable {
+        guard let viewIO = viewIO else { return Disposables.create() }
+        
+        return disposable(
+            interactor.getStations()
+                .subscribe(
+                    onNext: { stations in
+                        viewIO.showStations(stations)
+                    },
+                    onError: { error in
+                        viewIO.showError(ErrorWithRecovery(error.localizedDescription))
+                    }
+                ),
+            viewIO.timerFinished.drive(onNext: { _ in
+                
+            })
+        )
+    }
 }

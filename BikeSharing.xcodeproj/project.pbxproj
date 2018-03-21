@@ -47,6 +47,12 @@
 		0120EAC02061D5D50039907D /* MapViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EABF2061D5D50039907D /* MapViewIO.swift */; };
 		0120EAC32061DCEA0039907D /* StationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC22061DCEA0039907D /* StationService.swift */; };
 		0120EAC52061DDC70039907D /* StubStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC42061DDC70039907D /* StubStationService.swift */; };
+		0120EAC72061E5420039907D /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC62061E5420039907D /* Station.swift */; };
+		0120EAC92061E6DC0039907D /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC82061E6DC0039907D /* Bike.swift */; };
+		0120EACB2061E8460039907D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACA2061E8460039907D /* Location.swift */; };
+		0120EACE2061F4490039907D /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACD2061F4490039907D /* StatusView.swift */; };
+		0120EAD02061FC450039907D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACF2061FC450039907D /* State.swift */; };
+		01B5E3B920627A54005D7A30 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5E3B820627A54005D7A30 /* StringExt.swift */; };
 		23035E74BF7669743864C593 /* Pods_ModelLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DE7DAD5AB9B6536A96A33 /* Pods_ModelLayer.framework */; };
 		28D6BEDE2DD187038A315584 /* Pods_BikeSharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350F0EAF75CAB663D3A036A1 /* Pods_BikeSharing.framework */; };
 		BEE5FEBF22CACC5A8D4C60D0 /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4728195AF08F86C5417457B4 /* Pods_DataLayer.framework */; };
@@ -143,6 +149,12 @@
 		0120EABF2061D5D50039907D /* MapViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewIO.swift; sourceTree = "<group>"; };
 		0120EAC22061DCEA0039907D /* StationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationService.swift; sourceTree = "<group>"; };
 		0120EAC42061DDC70039907D /* StubStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStationService.swift; sourceTree = "<group>"; };
+		0120EAC62061E5420039907D /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		0120EAC82061E6DC0039907D /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
+		0120EACA2061E8460039907D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		0120EACD2061F4490039907D /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		0120EACF2061FC450039907D /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		01B5E3B820627A54005D7A30 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		0BC6F81400A6A9496077C48B /* Pods_ModelLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E69D2EEFA003394D3D2631E /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
 		350F0EAF75CAB663D3A036A1 /* Pods_BikeSharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +239,7 @@
 				0120EA752061B1FC0039907D /* Base */,
 				0120EA882061B83E0039907D /* Misc */,
 				0120EA722061AFFD0039907D /* Scenes */,
+				0120EACC2061F42B0039907D /* Views */,
 				0120EA7B2061B6960039907D /* Extensions */,
 				0120EA2B2061A1750039907D /* Assets.xcassets */,
 				0120EA2D2061A1750039907D /* LaunchScreen.storyboard */,
@@ -322,6 +335,7 @@
 			children = (
 				0120EA7E2061B6C70039907D /* ControlEvent+Extras.swift */,
 				0120EA8B2061B8810039907D /* Colors+Extras.swift */,
+				01B5E3B820627A54005D7A30 /* StringExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +394,10 @@
 		0120EA952061BA6B0039907D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				0120EAC62061E5420039907D /* Station.swift */,
+				0120EACA2061E8460039907D /* Location.swift */,
+				0120EAC82061E6DC0039907D /* Bike.swift */,
+				0120EACF2061FC450039907D /* State.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -437,6 +455,14 @@
 				0120EABF2061D5D50039907D /* MapViewIO.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		0120EACC2061F42B0039907D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0120EACD2061F4490039907D /* StatusView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		027E2CFF9C81117FAF8D7B9D /* Frameworks */ = {
@@ -863,6 +889,7 @@
 			files = (
 				0120EA712061AF2B0039907D /* Application.swift in Sources */,
 				0120EA7F2061B6C70039907D /* ControlEvent+Extras.swift in Sources */,
+				01B5E3B920627A54005D7A30 /* StringExt.swift in Sources */,
 				0120EA872061B8220039907D /* main.swift in Sources */,
 				0120EA272061A1750039907D /* ViewController.swift in Sources */,
 				0120EA8C2061B8810039907D /* Colors+Extras.swift in Sources */,
@@ -875,6 +902,7 @@
 				0120EA7A2061B6360039907D /* BaseNavigator.swift in Sources */,
 				0120EA6D2061AE490039907D /* Scene.swift in Sources */,
 				0120EAB62061D5500039907D /* MapViewController.swift in Sources */,
+				0120EACE2061F4490039907D /* StatusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,11 +910,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0120EAC92061E6DC0039907D /* Bike.swift in Sources */,
 				0120EA832061B7520039907D /* Presenter.swift in Sources */,
 				0120EA812061B7330039907D /* ActivityIndicator.swift in Sources */,
 				0120EA972061BAE80039907D /* Executors.swift in Sources */,
 				0120EA932061BA2E0039907D /* Interactor.swift in Sources */,
 				0120EA852061B77A0039907D /* ViewIO.swift in Sources */,
+				0120EAC72061E5420039907D /* Station.swift in Sources */,
+				0120EAD02061FC450039907D /* State.swift in Sources */,
+				0120EACB2061E8460039907D /* Location.swift in Sources */,
 				0120EA992061BB530039907D /* DomainError.swift in Sources */,
 				0120EAC32061DCEA0039907D /* StationService.swift in Sources */,
 				0120EA782061B4A80039907D /* ErrorWithRecovery.swift in Sources */,
