@@ -29,8 +29,7 @@ class Application {
         shared.rootScene.plugInWindow(window)
         
         // Add first scene
-//        let scene = WelcomeScene()
-//        shared.rootScene.push(scene)
+        shared.rootScene.push(MapScene())
         
         return window
     }

@@ -15,5 +15,7 @@ import DataLayer
  */
 class DataLayerAssembly: Assembly {
     func assemble(container: Container) {
+        container.register(Executors.self) { _ in StandardExecutors() }
+        container.register(StationService.self) { _ in StubStationService() }
     }
 }
