@@ -40,4 +40,7 @@ public protocol StationViewIO: ViewIO {
     /// Mark already booked bike
     func markBikeAsBooked(_ id: Int)
     
+    /// Show alert thar user parked his bike
+    func showAlertParkedBike()
+    
 }

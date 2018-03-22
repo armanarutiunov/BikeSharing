@@ -21,7 +21,7 @@ public class StubBookingService: BookingService {
         return Observable.just(0).map { [weak self] _ in
             guard let `self` = self else { return }
             var bike = bike
-            bike.bookingExpiration = 600
+            bike.bookingExpiration = Date().timeIntervalSince1970 + 600
             self.saveBike(bike, key: self.bookedBikeKey)
         }
     }
@@ -36,10 +36,10 @@ public class StubBookingService: BookingService {
     public func startRide(_ bike: Bike) -> Observable<Void> {
         return Observable.just(0).map { [weak self] _ in
             guard let `self` = self else { return }
-            UserDefaults.standard.removeObject(forKey: self.ridingBikeKey)
+            UserDefaults.standard.removeObject(forKey: self.bookedBikeKey)
             var bike = bike
             bike.rideStart = Date().timeIntervalSince1970
-            self.saveBike(bike, key: "ridingBike")
+            self.saveBike(bike, key: self.ridingBikeKey)
         }
     }
     
@@ -65,7 +65,7 @@ public class StubBookingService: BookingService {
     }
     
     private func getSavedBike(with key: String) -> Bike? {
-        guard let bikeJSON = UserDefaults.standard.value(forKey: "bookedBike") as? JSON else { return nil }
+        guard let bikeJSON = UserDefaults.standard.value(forKey: key) as? JSON else { return nil }
         return Bike(json: bikeJSON)
     }
 }

@@ -67,14 +67,15 @@ extension StationViewController: StationViewIO {
     }
     
     func showAlreadyBookedAlert() {
-        let alertController = UIAlertController(title: "You have already booked another bike", message: "Please first cancel that booking", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+        showAlert(title: "You have already booked another bike", message: "Please first cancel that booking")
     }
     
     func markBikeAsBooked(_ id: Int) {
         bookedBikeId = id
+    }
+    
+    func showAlertParkedBike() {
+        showAlert(title: "You've successfully parked your bike!", message: "Feel free to book another at any time")
     }
     
     func show(loading: Bool) {
@@ -125,6 +126,13 @@ extension StationViewController {
             }
             .disposed(by: disposeBag)
         
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

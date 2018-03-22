@@ -69,7 +69,8 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
             color = UIColor.redBike
         }
         viewIO?.configureBikeColor(color)
-        viewIO?.showTimeLeft(bike.bookingExpiration ?? 600)
+        let bookingExpiration = bike.bookingExpiration ?? Date().timeIntervalSince1970 + 600
+        viewIO?.showTimeLeft(bookingExpiration - Date().timeIntervalSince1970)
         viewIO?.showPin("\(bike.pin)")
     }
     

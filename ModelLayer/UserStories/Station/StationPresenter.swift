@@ -26,6 +26,8 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     override func setup() {
         bikes.accept(station.bikes)
         viewIO?.showStationId("\(station.id)")
+        self.viewIO?.updateFreeBikesCounter(self.bikes.value.count)
+        self.viewIO?.updateFreeSpaceCounter(self.station.capacity - self.bikes.value.count)
     }
     
     override func viewAttached() -> Disposable {
@@ -91,6 +93,8 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
                     let newBikesAmount = self.bikes.value.count + 1
                     self.viewIO?.updateFreeBikesCounter(newBikesAmount)
                     self.viewIO?.updateFreeSpaceCounter(self.station.capacity - newBikesAmount)
+                    self.viewIO?.toggleParkButton(false)
+                    self.viewIO?.showAlertParkedBike()
             })
             .disposed(by: disposeBag)
     }
