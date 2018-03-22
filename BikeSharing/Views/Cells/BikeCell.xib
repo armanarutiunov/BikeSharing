@@ -20,11 +20,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBM-4i-enE">
-                        <rect key="frame" x="219" y="11" width="85" height="36"/>
+                        <rect key="frame" x="184" y="11" width="120" height="36"/>
                         <color key="backgroundColor" red="0.34509803919999998" green="0.77647058820000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="8OW-fi-1UR"/>
-                            <constraint firstAttribute="width" constant="85" id="CVh-GP-br9"/>
+                            <constraint firstAttribute="width" constant="120" id="CVh-GP-br9"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="Book Bike">

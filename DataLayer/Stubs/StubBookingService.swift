@@ -21,7 +21,7 @@ public class StubBookingService: BookingService {
         return Observable.just(0).map { [weak self] _ in
             guard let `self` = self else { return }
             var bike = bike
-            bike.bookingExpiration = Date().timeIntervalSince1970 + 600
+            bike.bookingExpiration = 600
             self.saveBike(bike, key: self.bookedBikeKey)
         }
     }
@@ -51,8 +51,9 @@ public class StubBookingService: BookingService {
     }
     
     public func endRide() -> Observable<Void> {
-        return Observable.just(0).map{ _ in
-            UserDefaults.standard.removeObject(forKey: "ridingBike")
+        return Observable.just(0).map{ [weak self] _ in
+            guard let `self` = self else { return }
+            UserDefaults.standard.removeObject(forKey: self.ridingBikeKey)
         }
     }
     
@@ -88,15 +89,19 @@ extension Bike: Gloss.JSONDecodable {
             let id: Int = "id" <~~ json,
             let name: String = "name" <~~ json,
             let frameColor: String = "frameColor" <~~ json,
-            let pin: Int = "pin" <~~ json,
-            let bookingExpiration: TimeInterval? = "bookingExpiration" <~~ json,
-            let rideStart: TimeInterval? = "rideStart" <~~ json
+            let pin: Int = "pin" <~~ json
             else { return nil }
+        self.bookingExpiration = nil
+        if let bookingExpiration: TimeInterval? = "bookingExpiration" <~~ json {
+            self.bookingExpiration = bookingExpiration
+        }
+        self.rideStart = nil
+        if let rideStart: TimeInterval? = "rideStart" <~~ json {
+            self.rideStart = rideStart
+        }
         self.id = id
         self.name = name
         self.frameColor = FrameColor(rawValue: frameColor)!
         self.pin = pin
-        self.bookingExpiration = bookingExpiration
-        self.rideStart = rideStart
     }
 }
