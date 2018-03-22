@@ -16,9 +16,16 @@ public protocol StationViewIO: ViewIO {
     /// Bike is booked
     var bookBike: Driver<Int> { get }
     
+    /// Park a bike
     var parkBike: Action { get }
+    
+    /// Show station id
+    func showStationId(_ id: String)
     
     /// Show bikes
     func showBikes(_ bikes: [Bike])
+    
+    /// Toggle park button
+    func toggleParkButton(_ enabled: Bool)
     
 }

@@ -14,6 +14,6 @@ class StationSceneNavigator: BaseNavigator, StationNavigator {
     }
     
     func toBooking() {
-        
+        scene.push(BookingScene())
     }
 }

@@ -11,7 +11,8 @@ public struct Bike {
     public let name: String
     public let frameColor: FrameColor
     public let pin: Int
-    public let icon = #imageLiteral(resourceName: "bike")
+    public var bookingExpiration: TimeInterval?
+    public var rideStart: TimeInterval?
     
     public init(id: Int, name: String, frameColor: FrameColor, pin: Int) {
         self.id = id
@@ -21,6 +22,6 @@ public struct Bike {
     }
 }
 
-public enum FrameColor {
+public enum FrameColor: String {
     case blue, red, green
 }

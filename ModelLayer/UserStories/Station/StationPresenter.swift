@@ -25,6 +25,7 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     override func setup() {
         bikes.accept(station.bikes)
         viewIO?.showBikes(bikes.value)
+        viewIO?.showStationId("\(station.id)")
     }
     
     override func viewAttached() -> Disposable {

@@ -32,6 +32,7 @@ class StationViewController: ViewController {
 }
 
 extension StationViewController: StationViewIO {
+    
     var backButtonPressed: Action {
         return backButton.rx.tap.asAction()
     }
@@ -42,6 +43,14 @@ extension StationViewController: StationViewIO {
     
     var parkBike: Action {
         return parkBikeButton.rx.tap.asAction()
+    }
+    
+    func showStationId(_ id: String) {
+        titleLabel.text = "Station \(id)"
+    }
+    
+    func toggleParkButton(_ enabled: Bool) {
+        parkBikeButton.isEnabled = enabled
     }
     
     func showBikes(_ bikes: [Bike]) {
