@@ -13,12 +13,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookingViewController" customModule="BikeSharing" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="86d-VP-3er" id="yLr-xF-YlM"/>
-                <outlet property="bikeIcon" destination="8FR-cm-L4r" id="lzt-h9-7iX"/>
-                <outlet property="pin" destination="7rB-jD-PzS" id="Nij-Os-Yio"/>
-                <outlet property="startRideButton" destination="LNp-gX-8qU" id="Wi5-GL-xxg"/>
-                <outlet property="timeLeft" destination="BRl-59-BvP" id="Vfx-rD-uU8"/>
-                <outlet property="titleLabel" destination="SK3-ta-bYc" id="Tpk-0M-ara"/>
+                <outlet property="backButton" destination="86d-VP-3er" id="AXN-Md-n2J"/>
+                <outlet property="bikeIcon" destination="8FR-cm-L4r" id="r9J-ea-APQ"/>
+                <outlet property="bookingWillExpireLabel" destination="CKU-gP-IXe" id="hvq-D2-7qM"/>
+                <outlet property="pin" destination="7rB-jD-PzS" id="Sgd-XI-Bmw"/>
+                <outlet property="startRideButton" destination="LNp-gX-8qU" id="ipg-1P-1s5"/>
+                <outlet property="timeLeft" destination="BRl-59-BvP" id="kM0-0y-PDB"/>
+                <outlet property="titleLabel" destination="SK3-ta-bYc" id="nPP-AI-ywq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

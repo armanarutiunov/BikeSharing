@@ -39,11 +39,13 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
                 viewIO.toggleParkButton(bike != nil)
             }),
             bookedBike.drive(onNext: { [weak self] bike in
-                guard let bike = bike, let `self` = self else { return }
-                self.bookedBike.accept(bike)
-                self.bikes.value.forEach {
-                    if $0.id == bike.id {
-                        viewIO.markBikeAsBooked($0.id)
+                guard let `self` = self else { return }
+                if let bike = bike {
+                    self.bookedBike.accept(bike)
+                    self.bikes.value.forEach {
+                        if $0.id == bike.id {
+                            viewIO.markBikeAsBooked($0.id)
+                        }
                     }
                 }
                 viewIO.showBikes(self.bikes.value)

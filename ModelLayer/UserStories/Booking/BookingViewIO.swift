@@ -20,6 +20,9 @@ public protocol BookingViewIO: ViewIO {
     /// When booking is expired user pressed OK on alert
     var alertOkPressed: Action { get }
     
+    /// Start ride ok alert
+    var startRideOkAlert: Action { get }
+    
     /// Show title
     func showTitle(_ title: String)
     
@@ -34,5 +37,8 @@ public protocol BookingViewIO: ViewIO {
     
     /// Show alert that booking is expired
     func showExpirationAlert()
+    
+    /// Show alert that ride has started
+    func showStartRideAlert()
     
 }

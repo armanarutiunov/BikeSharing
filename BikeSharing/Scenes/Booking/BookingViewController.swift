@@ -15,6 +15,7 @@ class BookingViewController: ViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var bikeIcon: UIImageView!
+    @IBOutlet weak var bookingWillExpireLabel: UILabel!
     @IBOutlet weak var timeLeft: UILabel!
     @IBOutlet weak var pin: UILabel!
     @IBOutlet weak var startRideButton: UIButton!
@@ -22,6 +23,7 @@ class BookingViewController: ViewController {
     var presenter: BookingPresenter<BookingViewController>!
     
     private let alertOkSignal = PublishSubject<Void>()
+    private let startRideOkSignal = PublishSubject<Void>()
     let timerFinishSignal = PublishSubject<Void>()
     private var timer = Timer()
     private var time: TimeInterval!
@@ -50,6 +52,10 @@ extension BookingViewController: BookingViewIO {
         return alertOkSignal.asDriver(onErrorDriveWith: .never())
     }
     
+    var startRideOkAlert: Action {
+        return startRideOkSignal.asDriver(onErrorDriveWith: .never())
+    }
+    
     func showTitle(_ title: String) {
         titleLabel.text = title
     }
@@ -68,12 +74,14 @@ extension BookingViewController: BookingViewIO {
     }
     
     func showExpirationAlert() {
-        let alertController = UIAlertController(title: "Your booking is expired", message: "Please book a new bike", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            self?.alertOkSignal.onNext(())
-        })
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+        showAlert(title: "Your booking is expired", message: "Please book a new bike")
+    }
+    
+    func showStartRideAlert() {
+        timer.invalidate()
+        timeLeft.isHidden = true
+        bookingWillExpireLabel.text = "Ride has already started!"
+        showAlert(title: "Congrats!", message: "You started a new ride!")
     }
     
     func show(loading: Bool) { }
@@ -82,7 +90,8 @@ extension BookingViewController: BookingViewIO {
 extension BookingViewController {
     
     private func setupView() {
-        
+        backButton.imageView?.tintColor = UIColor.white
+        startRideButton.layer.cornerRadius = 6
     }
     
     private func runTimer() {
@@ -97,6 +106,17 @@ extension BookingViewController {
         }
         time = time - 1
         timeLeft.text = "\(time.string)"
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            message == "Please book a new bike" ?
+                self?.alertOkSignal.onNext(()) :
+                self?.startRideOkSignal.onNext(())
+        })
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

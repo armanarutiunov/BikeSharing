@@ -12,4 +12,8 @@ class BookingSceneNavigator: BaseNavigator, BookingNavigator {
     func back() {
         scene.pop()
     }
+    
+    func backToMap() {
+        scene.popLast(n: 2)
+    }
 }

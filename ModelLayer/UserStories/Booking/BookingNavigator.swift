@@ -7,5 +7,6 @@
 //
 
 public protocol BookingNavigator {
+    func backToMap()
     func back()
 }
