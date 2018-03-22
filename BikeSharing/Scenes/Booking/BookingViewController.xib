@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookingViewController" customModule="BikeSharing" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="86d-VP-3er" id="AXN-Md-n2J"/>
+                <outlet property="bikeIcon" destination="8FR-cm-L4r" id="r9J-ea-APQ"/>
+                <outlet property="bookingWillExpireLabel" destination="CKU-gP-IXe" id="hvq-D2-7qM"/>
+                <outlet property="pin" destination="7rB-jD-PzS" id="Sgd-XI-Bmw"/>
+                <outlet property="startRideButton" destination="LNp-gX-8qU" id="ipg-1P-1s5"/>
+                <outlet property="timeLeft" destination="BRl-59-BvP" id="kM0-0y-PDB"/>
+                <outlet property="titleLabel" destination="SK3-ta-bYc" id="nPP-AI-ywq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L06-Ug-x8s">
+                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bianchi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SK3-ta-bYc">
+                            <rect key="frame" x="125" y="10.5" width="70" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bike" translatesAutoresizingMaskIntoConstraints="NO" id="8FR-cm-L4r">
+                            <rect key="frame" x="260" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="qzp-co-c6F"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86d-VP-3er">
+                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="UI0-qI-77C"/>
+                            </constraints>
+                            <state key="normal" image="back"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="SK3-ta-bYc" firstAttribute="centerX" secondItem="L06-Ug-x8s" secondAttribute="centerX" id="1p5-LN-JB2"/>
+                        <constraint firstItem="86d-VP-3er" firstAttribute="leading" secondItem="L06-Ug-x8s" secondAttribute="leading" constant="16" id="PZF-RJ-BFf"/>
+                        <constraint firstItem="8FR-cm-L4r" firstAttribute="top" secondItem="L06-Ug-x8s" secondAttribute="top" id="PtQ-Lk-3iI"/>
+                        <constraint firstAttribute="trailing" secondItem="8FR-cm-L4r" secondAttribute="trailing" constant="16" id="R63-E1-12A"/>
+                        <constraint firstItem="SK3-ta-bYc" firstAttribute="centerY" secondItem="L06-Ug-x8s" secondAttribute="centerY" id="fOA-bf-gPN"/>
+                        <constraint firstAttribute="bottom" secondItem="8FR-cm-L4r" secondAttribute="bottom" id="jRg-jT-eSA"/>
+                        <constraint firstItem="86d-VP-3er" firstAttribute="top" secondItem="L06-Ug-x8s" secondAttribute="top" id="jTi-s4-Pdk"/>
+                        <constraint firstAttribute="bottom" secondItem="86d-VP-3er" secondAttribute="bottom" id="k2L-t1-d6L"/>
+                        <constraint firstAttribute="height" constant="44" id="sas-Ks-0tv"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgk-cd-oMF">
+                    <rect key="frame" x="0.0" y="72" width="320" height="420"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your booking will expire in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKU-gP-IXe">
+                            <rect key="frame" x="27" y="30" width="264.5" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                            <color key="textColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRl-59-BvP">
+                            <rect key="frame" x="68" y="94" width="184" height="72"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                            <color key="textColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike PIN code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvk-Vf-NUq">
+                            <rect key="frame" x="58" y="213" width="204" height="36"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                            <color key="textColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5893" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rB-jD-PzS">
+                            <rect key="frame" x="77" y="288.5" width="165" height="72"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                            <color key="textColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7rB-jD-PzS" firstAttribute="centerX" secondItem="Xvk-Vf-NUq" secondAttribute="centerX" id="2RS-Ke-xSs"/>
+                        <constraint firstItem="BRl-59-BvP" firstAttribute="top" secondItem="CKU-gP-IXe" secondAttribute="bottom" constant="40" id="KP0-1b-1Hb"/>
+                        <constraint firstItem="7rB-jD-PzS" firstAttribute="top" secondItem="Xvk-Vf-NUq" secondAttribute="bottom" constant="40" id="Kjh-8V-OrW"/>
+                        <constraint firstItem="BRl-59-BvP" firstAttribute="centerX" secondItem="CKU-gP-IXe" secondAttribute="centerX" id="Sk0-E3-nHP"/>
+                        <constraint firstItem="Xvk-Vf-NUq" firstAttribute="centerY" secondItem="qgk-cd-oMF" secondAttribute="centerY" multiplier="1.1" id="ZIL-he-Iax"/>
+                        <constraint firstItem="CKU-gP-IXe" firstAttribute="centerY" secondItem="qgk-cd-oMF" secondAttribute="centerY" multiplier="0.2" id="fEy-Nz-gjO"/>
+                        <constraint firstItem="Xvk-Vf-NUq" firstAttribute="centerX" secondItem="qgk-cd-oMF" secondAttribute="centerX" id="pf6-a6-UZ3"/>
+                        <constraint firstItem="CKU-gP-IXe" firstAttribute="centerX" secondItem="qgk-cd-oMF" secondAttribute="centerX" id="zab-c5-yAe"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNp-gX-8qU">
+                    <rect key="frame" x="16" y="508" width="288" height="44"/>
+                    <color key="backgroundColor" red="0.34509803919999998" green="0.77647058820000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="fk7-5a-qGI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="Start a ride">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LNp-gX-8qU" secondAttribute="trailing" constant="16" id="2qb-YM-Kf4"/>
+                <constraint firstItem="qgk-cd-oMF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5N6-ba-1qz"/>
+                <constraint firstItem="L06-Ug-x8s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AUj-jQ-KBa"/>
+                <constraint firstItem="LNp-gX-8qU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="BwC-du-t3Q"/>
+                <constraint firstItem="qgk-cd-oMF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Kyk-Zb-ZqJ"/>
+                <constraint firstItem="L06-Ug-x8s" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OHz-xg-0wu"/>
+                <constraint firstItem="qgk-cd-oMF" firstAttribute="top" secondItem="L06-Ug-x8s" secondAttribute="bottom" constant="8" id="St2-hl-2TZ"/>
+                <constraint firstItem="LNp-gX-8qU" firstAttribute="top" secondItem="qgk-cd-oMF" secondAttribute="bottom" constant="16" id="oTo-uw-aUL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L06-Ug-x8s" secondAttribute="trailing" id="pDr-od-Jgh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LNp-gX-8qU" secondAttribute="bottom" constant="16" id="spH-ak-Bca"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="15" height="27"/>
+        <image name="bike" width="256" height="144"/>
+    </resources>
+</document>

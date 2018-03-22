@@ -42,7 +42,7 @@ class StatusView: UIView {
             guard let time = time else { return }
             timer.invalidate()
             state == .booked ?
-                runTimer(time: time) :
+                runTimer() :
                 runStopwatch(time: time)
         }
     }
@@ -68,7 +68,7 @@ class StatusView: UIView {
         layoutIfNeeded()
     }
     
-    private func runTimer(time: TimeInterval) {
+    private func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
     }
     

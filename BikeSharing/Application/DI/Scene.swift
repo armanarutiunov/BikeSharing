@@ -73,6 +73,15 @@ class Scene {
         container().resolve(UINavigationController.self)?.popViewController(animated: animated)
     }
     
+    /// Pop last N child scenes from navigation stack
+    func popLast(n: Int, animated: Bool = true) {
+        if let nc = container().resolve(UINavigationController.self) {
+            if let vc = nc.viewControllers.dropLast(n).last {
+                nc.popToViewController(vc, animated: animated)
+            }
+        }
+    }
+    
     /// Pop to root vc
     func popToRoot(animated: Bool = true) {
         container().resolve(UINavigationController.self)?.popToRootViewController(animated: animated)

@@ -25,7 +25,7 @@ class StationScene: Scene {
         return Container(parent: parent) { container in
             container.register(StationInteractor.self) { r in
                 StationInteractor(executors: r.resolve(Executors.self)!,
-                                  stationService: r.resolve(StationService.self)!)
+                                  bookingService: r.resolve(BookingService.self)!)
             }
             container.register(StationPresenter.self) { r -> StationPresenter<StationViewController> in
                 StationPresenter(interactor: r.resolve(StationInteractor.self)!,
