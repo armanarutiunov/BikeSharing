@@ -23,6 +23,7 @@ class StationViewController: ViewController {
     var presenter: StationPresenter<StationViewController>!
     private let bikes = PublishSubject<[Bike]>()
     private var bookSignal = PublishSubject<Int>()
+    private var bookedBikeId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ extension StationViewController: StationViewIO {
     }
     
     func showStationId(_ id: String) {
-        titleLabel.text = "Station \(id)"
+        titleLabel.text = "Station #\(id)"
     }
     
     func toggleParkButton(_ enabled: Bool) {
@@ -55,6 +56,25 @@ extension StationViewController: StationViewIO {
     
     func showBikes(_ bikes: [Bike]) {
         self.bikes.onNext(bikes)
+    }
+    
+    func updateFreeSpaceCounter(_ amount: Int) {
+        freeSpaceLabel.text = "\(amount) free parking places"
+    }
+    
+    func updateFreeBikesCounter(_ amount: Int) {
+        freeBikesLabel.text = "\(amount) free bikes"
+    }
+    
+    func showAlreadyBookedAlert() {
+        let alertController = UIAlertController(title: "You have already booked another bike", message: "Please first cancel that booking", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func markBikeAsBooked(_ id: Int) {
+        bookedBikeId = id
     }
     
     func show(loading: Bool) {
@@ -94,6 +114,9 @@ extension StationViewController {
             .bind(to: tableView.rx.items(cellIdentifier: "BikeCell", cellType: BikeCell.self)) { [weak self] (row, element, cell) in
                 guard let `self` = self else { return }
                 cell.bike = element
+                if let bookedId = self.bookedBikeId, bookedId == element.id {
+                    cell.bookBikeButton.setTitle("Show booking", for: .normal)
+                }
                 cell.bookBikeButton.rx.tap.asAction()
                     .drive(onNext: { [weak self] _ in
                         self?.bookSignal.onNext(row)

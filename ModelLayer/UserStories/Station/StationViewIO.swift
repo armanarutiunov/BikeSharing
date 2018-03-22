@@ -25,7 +25,19 @@ public protocol StationViewIO: ViewIO {
     /// Show bikes
     func showBikes(_ bikes: [Bike])
     
+    /// Update free space counter
+    func updateFreeSpaceCounter(_ amount: Int)
+    
+    /// Update free bikes counter
+    func updateFreeBikesCounter(_ amount: Int)
+    
     /// Toggle park button
     func toggleParkButton(_ enabled: Bool)
+    
+    /// Show alert that user already booked another bike
+    func showAlreadyBookedAlert()
+    
+    /// Mark already booked bike
+    func markBikeAsBooked(_ id: Int)
     
 }

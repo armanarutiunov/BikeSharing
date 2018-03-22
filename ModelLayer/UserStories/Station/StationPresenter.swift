@@ -15,6 +15,7 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     private let navigator: StationNavigator
     private let station: Station
     private let bikes = BehaviorRelay<[Bike]>(value: [Bike]())
+    private let bookedBike = BehaviorRelay<Bike?>(value: nil)
     
     public init(interactor: StationInteractor, navigator: StationNavigator, station: Station) {
         self.interactor = interactor
@@ -24,21 +25,72 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     
     override func setup() {
         bikes.accept(station.bikes)
-        viewIO?.showBikes(bikes.value)
         viewIO?.showStationId("\(station.id)")
     }
     
     override func viewAttached() -> Disposable {
         guard let viewIO = viewIO else { return Disposables.create() }
         
+        let ridingBike = interactor.getRidingBike().asDriver(onErrorDriveWith: .never())
+        let bookedBike = interactor.getBookedBike().asDriver(onErrorDriveWith: .never())
+        
         return disposable(
+            ridingBike.drive(onNext: { bike in
+                viewIO.toggleParkButton(bike != nil)
+            }),
+            bookedBike.drive(onNext: { [weak self] bike in
+                guard let bike = bike, let `self` = self else { return }
+                self.bookedBike.accept(bike)
+                self.bikes.value.forEach {
+                    if $0.id == bike.id {
+                        viewIO.markBikeAsBooked($0.id)
+                    }
+                }
+                viewIO.showBikes(self.bikes.value)
+            }),
             viewIO.backButtonPressed.drive(onNext: { [weak self] in
                 self?.navigator.back()
             }),
             viewIO.bookBike.drive(onNext: { [weak self] index in
-                 self?.navigator.toBooking()
+                guard let `self` = self else { return }
+                let bike = self.bikes.value[index]
+                if self.bookedBike.value == nil {
+                    self.bookBike(bike)
+                } else if bike.id == self.bookedBike.value?.id {
+                    self.navigator.toBooking()
+                } else {
+                    viewIO.showAlreadyBookedAlert()
+                }
+            }),
+            viewIO.parkBike.drive(onNext: { [weak self] in
+                self?.parkBike()
             })
         )
+    }
+    
+    private func bookBike(_ bike: Bike) {
+        interactor.bookBike(bike)
+            .subscribe(
+                onNext: { [weak self] in
+                    guard let `self` = self else { return }
+                    let newBikesAmount = self.bikes.value.count - 1
+                    self.viewIO?.updateFreeBikesCounter(newBikesAmount)
+                    self.viewIO?.updateFreeSpaceCounter(self.station.capacity - newBikesAmount)
+                    self.navigator.toBooking()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func parkBike() {
+        interactor.parkBike()
+            .subscribe(
+                onNext: { [weak self] in
+                    guard let `self` = self else { return }
+                    let newBikesAmount = self.bikes.value.count + 1
+                    self.viewIO?.updateFreeBikesCounter(newBikesAmount)
+                    self.viewIO?.updateFreeSpaceCounter(self.station.capacity - newBikesAmount)
+            })
+            .disposed(by: disposeBag)
     }
     
 }
