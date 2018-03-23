@@ -40,8 +40,7 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     override func setup() {
         bikes.accept(station.bikes)
         viewIO?.showStationId("\(station.id)")
-        viewIO?.updateFreeBikesCounter(bikes.value.count)
-        viewIO?.updateFreeSpaceCounter(station.capacity - bikes.value.count)
+        
         viewIO?.showAddress(station.location.address)
     }
     
@@ -70,19 +69,27 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     
     private func handleMyBikes(booked: Bike?, riding: Bike?) {
         viewIO?.toggleParkButton(riding != nil)
-        if let riding = riding { ridingBike.accept(riding) }
+        if let riding = riding {
+            ridingBike.accept(riding)
+            if station.id == riding.stationId {
+                updateSpaceCounters(bikesAmount: bikes.value.count - 1)
+            }
+        }
         if let bike = booked {
             bookedBike.accept(bike)
             bikes.value.forEach {
-                if $0.id == bike.id {
+                if $0.id == bike.id &&
+                    station.id == bike.stationId {
                     markedBike.accept(bike)
                     viewIO?.markBikeAsBooked($0.id)
+                    updateSpaceCounters(bikesAmount: bikes.value.count - 1)
                 }
             }
         } else if markedBike.value != nil {
             viewIO?.unmarkBikeAsBooked()
             markedBike.accept(nil)
-        }
+            updateSpaceCounters(bikesAmount: bikes.value.count)
+        } else { updateSpaceCounters(bikesAmount: bikes.value.count) }
         viewIO?.showBikes(bikes.value)
     }
     
@@ -92,7 +99,8 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
             bookBike(bike)
         } else if self.ridingBike.value != nil {
             viewIO?.showRidingAlert()
-        } else if bike.id == bookedBike.value?.id {
+        } else if bike.id == bookedBike.value?.id &&
+            bookedBike.value?.stationId == station.id {
             navigator.toBooking()
             viewIO?.prepareToGoToBooking()
         } else {

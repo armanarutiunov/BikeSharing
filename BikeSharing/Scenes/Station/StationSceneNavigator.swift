@@ -10,11 +10,17 @@ import ModelLayer
 
 class StationSceneNavigator: BaseNavigator, StationNavigator {
     
+    private var lastPushTimeStamp: TimeInterval = 10
+    
     func back() {
         scene.pop()
     }
     
     func toBooking() {
-        scene.push(BookingScene())
+        let lastPushTime = Date().timeIntervalSince1970 - lastPushTimeStamp
+        if lastPushTime > 2 {
+            lastPushTimeStamp = Date().timeIntervalSince1970
+            scene.push(BookingScene())
+        }
     }
 }
