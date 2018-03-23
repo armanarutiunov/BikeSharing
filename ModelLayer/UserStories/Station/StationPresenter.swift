@@ -42,6 +42,7 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
         viewIO?.showStationId("\(station.id)")
         viewIO?.updateFreeBikesCounter(bikes.value.count)
         viewIO?.updateFreeSpaceCounter(station.capacity - bikes.value.count)
+        viewIO?.showAddress(station.location.address)
     }
     
     override func viewAttached() -> Disposable {

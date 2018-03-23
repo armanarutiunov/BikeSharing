@@ -43,8 +43,6 @@ public class StubBookingService: BookingService {
         return Observable.just(0).map { [weak self] _ in
             guard let `self` = self else { return }
             UserDefaults.standard.removeObject(forKey: self.bookedBikeKey)
-            var bike = bike
-            bike.rideStart = Date().timeIntervalSince1970
             self.saveBike(bike, key: self.ridingBikeKey)
         }
     }
@@ -80,11 +78,11 @@ extension Bike: Gloss.JSONEncodable {
     public func toJSON() -> JSON? {
         return jsonify([
             "id" ~~> id,
+            "stationId" ~~> stationId,
             "name" ~~> name,
             "frameColor" ~~> frameColor,
             "pin" ~~> pin,
             "bookingExpiration" ~~> bookingExpiration,
-            "rideStart" ~~> rideStart
             ])
     }
 }
@@ -93,6 +91,7 @@ extension Bike: Gloss.JSONDecodable {
     public init?(json: JSON) {
         guard
             let id: Int = "id" <~~ json,
+            let stationId: Int = "stationId" <~~ json,
             let name: String = "name" <~~ json,
             let frameColor: String = "frameColor" <~~ json,
             let pin: Int = "pin" <~~ json
@@ -101,11 +100,8 @@ extension Bike: Gloss.JSONDecodable {
         if let bookingExpiration: TimeInterval? = "bookingExpiration" <~~ json {
             self.bookingExpiration = bookingExpiration
         }
-        self.rideStart = nil
-        if let rideStart: TimeInterval? = "rideStart" <~~ json {
-            self.rideStart = rideStart
-        }
         self.id = id
+        self.stationId = stationId
         self.name = name
         self.frameColor = FrameColor(rawValue: frameColor)!
         self.pin = pin

@@ -19,6 +19,7 @@ class StationViewController: ViewController {
     @IBOutlet weak var freeBikesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var parkBikeButton: UIButton!
+    @IBOutlet weak var addressLabel: UILabel!
     
     var presenter: StationPresenter<StationViewController>!
     private let bikes = PublishSubject<[Bike]>()
@@ -65,6 +66,10 @@ extension StationViewController: StationViewIO {
     
     func toggleParkButton(_ enabled: Bool) {
         parkBikeButton.isEnabled = enabled
+    }
+    
+    func showAddress(_ address: String) {
+        addressLabel.text = address
     }
     
     func showBikes(_ bikes: [Bike]) {

@@ -8,14 +8,15 @@
 
 public struct Bike {
     public let id: Int
+    public var stationId: Int
     public let name: String
     public let frameColor: FrameColor
     public let pin: Int
     public var bookingExpiration: TimeInterval?
-    public var rideStart: TimeInterval?
     
-    public init(id: Int, name: String, frameColor: FrameColor, pin: Int) {
+    public init(id: Int, stationId: Int, name: String, frameColor: FrameColor, pin: Int) {
         self.id = id
+        self.stationId = stationId
         self.name = name
         self.frameColor = frameColor
         self.pin = pin

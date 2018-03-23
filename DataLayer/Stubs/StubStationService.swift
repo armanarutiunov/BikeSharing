@@ -13,21 +13,21 @@ public class StubStationService: StationService {
     public init() {}
     
     public func getStations() -> Observable<[Station]> {
-        let bikes = [Bike(id: 23985742, name: "Kona", frameColor: .blue, pin: 2342),
-                     Bike(id: 23948723, name: "KHS", frameColor: .green, pin: 2874),
-                     Bike(id: 23942934, name: "Giant", frameColor: .red, pin: 2956),
-                     Bike(id: 45867944, name: "Bianchi", frameColor: .red, pin: 6037),
-                     Bike(id: 20572984, name: "Electra", frameColor: .green, pin: 0381),
-                     Bike(id: 01875398, name: "Fuji", frameColor: .blue, pin: 5810),
-                     Bike(id: 13466346, name: "Cinelli", frameColor: .blue, pin: 5830),
-                     Bike(id: 13644039, name: "Foffa", frameColor: .green, pin: 4927),
-                     Bike(id: 24643631, name: "Haro", frameColor: .red, pin: 5939),
-                     Bike(id: 51342959, name: "Bianchi", frameColor: .blue, pin: 5838),
-                     Bike(id: 98345395, name: "Electra", frameColor: .red, pin: 2959),
-                     Bike(id: 37458328, name: "KHS", frameColor: .green, pin: 4894),
-                     Bike(id: 36134507, name: "Fuji", frameColor: .green, pin: 3976),
-                     Bike(id: 19326549, name: "Foffa", frameColor: .blue, pin: 2840),
-                     Bike(id: 43810565, name: "Giant", frameColor: .red, pin: 0568)]
+        let bikes = [Bike(id: 23985742, stationId: 24028, name: "Kona", frameColor: .blue, pin: 2342),
+                     Bike(id: 23948723, stationId: 24028, name: "KHS", frameColor: .green, pin: 2874),
+                     Bike(id: 23942934, stationId: 24028, name: "Giant", frameColor: .red, pin: 2956),
+                     Bike(id: 45867944, stationId: 24028, name: "Bianchi", frameColor: .red, pin: 6037),
+                     Bike(id: 20572984, stationId: 24028, name: "Electra", frameColor: .green, pin: 0381),
+                     Bike(id: 01875398, stationId: 24028, name: "Fuji", frameColor: .blue, pin: 5810),
+                     Bike(id: 13466346, stationId: 24028, name: "Cinelli", frameColor: .blue, pin: 5830),
+                     Bike(id: 13644039, stationId: 24028, name: "Foffa", frameColor: .green, pin: 4927),
+                     Bike(id: 24643631, stationId: 24028, name: "Haro", frameColor: .red, pin: 5939),
+                     Bike(id: 51342959, stationId: 24028, name: "Bianchi", frameColor: .blue, pin: 5838),
+                     Bike(id: 98345395, stationId: 24028, name: "Electra", frameColor: .red, pin: 2959),
+                     Bike(id: 37458328, stationId: 24028, name: "KHS", frameColor: .green, pin: 4894),
+                     Bike(id: 36134507, stationId: 24028, name: "Fuji", frameColor: .green, pin: 3976),
+                     Bike(id: 19326549, stationId: 24028, name: "Foffa", frameColor: .blue, pin: 2840),
+                     Bike(id: 43810565, stationId: 24028, name: "Giant", frameColor: .red, pin: 0568)]
         
         let stations = [
             Station(id: 24028,
@@ -131,6 +131,18 @@ public class StubStationService: StationService {
                                        address: "Darmstädter Landstraße, 60598 Frankfurt am Main, Germany"),
                     bikes: bikes)
         ]
+        
+        var updatedStations = [Station]()
+        for station in stations {
+            var bikes = [Bike]()
+            for bike in station.bikes {
+                let newBike = Bike(id: bike.id, stationId: station.id, name: bike.name, frameColor: bike.frameColor, pin: bike.pin)
+                bikes.append(newBike)
+            }
+            let newStation = Station(id: station.id, location: station.location, bikes: bikes)
+            updatedStations.append(newStation)
+        }
+        
         return Observable.just(stations)
     }
 }

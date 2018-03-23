@@ -14,7 +14,7 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
     private let interactor: BookingInteractor
     private let navigator: BookingNavigator
     
-    private let bike = BehaviorRelay<Bike>(value: Bike(id: 1, name: "", frameColor: .blue, pin: 1111))
+    private let bike = BehaviorRelay<Bike>(value: Bike(id: 1, stationId: 2, name: "", frameColor: .blue, pin: 1111))
     
     public init(interactor: BookingInteractor, navigator: BookingNavigator) {
         self.interactor = interactor

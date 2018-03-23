@@ -31,6 +31,9 @@ public protocol StationViewIO: ViewIO {
     /// Update free bikes counter
     func updateFreeBikesCounter(_ amount: Int)
     
+    /// Show address
+    func showAddress(_ address: String)
+    
     /// Toggle park button
     func toggleParkButton(_ enabled: Bool)
     
