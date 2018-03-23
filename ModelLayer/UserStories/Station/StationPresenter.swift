@@ -9,18 +9,6 @@
 import RxSwift
 import RxCocoa
 
-/*
- 
- /// Баги
- 5. когда букаешь байк и переходишь на другую станцию, показывает тот же байк забукенным
- 6. после того, как начал поездку, если вернуться в станцию он все равно показывает 15 свободных и 15 занятых мест
- 
- 
- /// Импрувы
- 4. на экране карты добавить работу с зеленой вьюшкой
- 
- */
-
 public class StationPresenter<V: StationViewIO>: Presenter<V> {
     
     private let interactor: StationInteractor
@@ -29,7 +17,7 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     private let bikes = BehaviorRelay<[Bike]>(value: [Bike]())
     private let bookedBike = BehaviorRelay<Bike?>(value: nil)
     private let ridingBike = BehaviorRelay<Bike?>(value: nil)
-    private let markedBike = BehaviorRelay<Bike?>(value: nil)
+    public let markedBike = BehaviorRelay<Bike?>(value: nil)
     
     public init(interactor: StationInteractor, navigator: StationNavigator, station: Station) {
         self.interactor = interactor
@@ -73,9 +61,9 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
             ridingBike.accept(riding)
             if station.id == riding.stationId {
                 updateSpaceCounters(bikesAmount: bikes.value.count - 1)
-            }
+            } else { updateSpaceCounters(bikesAmount: bikes.value.count) }
         }
-        if let bike = booked {
+        else if let bike = booked {
             bookedBike.accept(bike)
             bikes.value.forEach {
                 if $0.id == bike.id &&
@@ -85,6 +73,7 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
                     updateSpaceCounters(bikesAmount: bikes.value.count - 1)
                 }
             }
+            if markedBike.value == nil { updateSpaceCounters(bikesAmount: bikes.value.count) }
         } else if markedBike.value != nil {
             viewIO?.unmarkBikeAsBooked()
             markedBike.accept(nil)

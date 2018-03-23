@@ -50,6 +50,12 @@
 		0120EAC72061E5420039907D /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC62061E5420039907D /* Station.swift */; };
 		0120EAC92061E6DC0039907D /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC82061E6DC0039907D /* Bike.swift */; };
 		0120EACB2061E8460039907D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACA2061E8460039907D /* Location.swift */; };
+		015DA4C020649C8500DD7C9E /* MockStationNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA4BF20649C8500DD7C9E /* MockStationNavigator.swift */; };
+		015DA4C220649D1F00DD7C9E /* MockStationViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA4C120649D1F00DD7C9E /* MockStationViewIO.swift */; };
+		015DA4C52064A24F00DD7C9E /* StationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA4C42064A24F00DD7C9E /* StationPresenterTests.swift */; };
+		015DA4CA2064A2E000DD7C9E /* MockBookingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA4C92064A2E000DD7C9E /* MockBookingService.swift */; };
+		015DA4CC2064A3FE00DD7C9E /* MockStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA4CB2064A3FE00DD7C9E /* MockStationService.swift */; };
+		015DA4CE2064BAC400DD7C9E /* XCTest+Eventually.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA4CD2064BAC400DD7C9E /* XCTest+Eventually.swift */; };
 		0184799B206327A600399CC3 /* BookingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184799A206327A600399CC3 /* BookingScene.swift */; };
 		0184799D206327FF00399CC3 /* BookingSceneNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184799C206327FF00399CC3 /* BookingSceneNavigator.swift */; };
 		018479A02063283900399CC3 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184799E2063283900399CC3 /* BookingViewController.swift */; };
@@ -172,6 +178,12 @@
 		0120EAC62061E5420039907D /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		0120EAC82061E6DC0039907D /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
 		0120EACA2061E8460039907D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		015DA4BF20649C8500DD7C9E /* MockStationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStationNavigator.swift; sourceTree = "<group>"; };
+		015DA4C120649D1F00DD7C9E /* MockStationViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStationViewIO.swift; sourceTree = "<group>"; };
+		015DA4C42064A24F00DD7C9E /* StationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPresenterTests.swift; sourceTree = "<group>"; };
+		015DA4C92064A2E000DD7C9E /* MockBookingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBookingService.swift; sourceTree = "<group>"; };
+		015DA4CB2064A3FE00DD7C9E /* MockStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStationService.swift; sourceTree = "<group>"; };
+		015DA4CD2064BAC400DD7C9E /* XCTest+Eventually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Eventually.swift"; sourceTree = "<group>"; };
 		0184799A206327A600399CC3 /* BookingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingScene.swift; sourceTree = "<group>"; };
 		0184799C206327FF00399CC3 /* BookingSceneNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingSceneNavigator.swift; sourceTree = "<group>"; };
 		0184799E2063283900399CC3 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +315,9 @@
 			isa = PBXGroup;
 			children = (
 				0120EA4A2061A1980039907D /* ModelLayerTests.swift */,
+				015DA4CF2064BAD500DD7C9E /* Extensions */,
+				015DA4C32064A23800DD7C9E /* UserStories */,
+				015DA4BC20649C1700DD7C9E /* Mocks */,
 				0120EA4C2061A1980039907D /* Info.plist */,
 			);
 			path = ModelLayerTests;
@@ -507,6 +522,49 @@
 				01B5E3CF2062C81F005D7A30 /* Cells */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		015DA4BC20649C1700DD7C9E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				015DA4C82064A2CB00DD7C9E /* Services */,
+				015DA4C72064A2BE00DD7C9E /* ModelLayer */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		015DA4C32064A23800DD7C9E /* UserStories */ = {
+			isa = PBXGroup;
+			children = (
+				015DA4C42064A24F00DD7C9E /* StationPresenterTests.swift */,
+			);
+			path = UserStories;
+			sourceTree = "<group>";
+		};
+		015DA4C72064A2BE00DD7C9E /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				015DA4BF20649C8500DD7C9E /* MockStationNavigator.swift */,
+				015DA4C120649D1F00DD7C9E /* MockStationViewIO.swift */,
+			);
+			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		015DA4C82064A2CB00DD7C9E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				015DA4C92064A2E000DD7C9E /* MockBookingService.swift */,
+				015DA4CB2064A3FE00DD7C9E /* MockStationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		015DA4CF2064BAD500DD7C9E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				015DA4CD2064BAC400DD7C9E /* XCTest+Eventually.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		018479992063279300399CC3 /* Booking */ = {
@@ -1048,7 +1106,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015DA4C220649D1F00DD7C9E /* MockStationViewIO.swift in Sources */,
+				015DA4C020649C8500DD7C9E /* MockStationNavigator.swift in Sources */,
+				015DA4CC2064A3FE00DD7C9E /* MockStationService.swift in Sources */,
 				0120EA4B2061A1980039907D /* ModelLayerTests.swift in Sources */,
+				015DA4CA2064A2E000DD7C9E /* MockBookingService.swift in Sources */,
+				015DA4C52064A24F00DD7C9E /* StationPresenterTests.swift in Sources */,
+				015DA4CE2064BAC400DD7C9E /* XCTest+Eventually.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
