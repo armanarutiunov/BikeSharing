@@ -40,7 +40,16 @@ public protocol StationViewIO: ViewIO {
     /// Mark already booked bike
     func markBikeAsBooked(_ id: Int)
     
+    /// Unmark bike of cancelled booking
+    func unmarkBikeAsBooked()
+    
     /// Show alert thar user parked his bike
     func showAlertParkedBike()
+    
+    /// Show alert that user is already on bike
+    func showRidingAlert()
+    
+    /// Prepares ViewController before going to booking to prevent multiple pushing
+    func prepareToGoToBooking()
     
 }

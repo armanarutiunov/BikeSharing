@@ -24,11 +24,19 @@ class StationViewController: ViewController {
     private let bikes = PublishSubject<[Bike]>()
     private var bookSignal = PublishSubject<Int>()
     private var bookedBikeId: Int?
+    private var viewDidAppearCount = 0
+    private var viewWillDisappearCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter.attachView(viewIO: self).disposed(by: disposeBag)
+        viewWillDisappearCount = viewDidAppearCount
+        viewDidAppearCount += 1
     }
 }
 
@@ -39,7 +47,12 @@ extension StationViewController: StationViewIO {
     }
     
     var bookBike: Driver<Int> {
-        return bookSignal.asDriver(onErrorDriveWith: .never())
+        return bookSignal
+            .takeWhile { [weak self] _ -> Bool in
+                guard let `self` = self else { return false }
+                return self.viewDidAppearCount == self.viewWillDisappearCount + 1
+            }
+            .asDriver(onErrorDriveWith: .never())
     }
     
     var parkBike: Action {
@@ -67,15 +80,32 @@ extension StationViewController: StationViewIO {
     }
     
     func showAlreadyBookedAlert() {
-        showAlert(title: "You have already booked another bike", message: "Please first cancel that booking")
+        showAlert(title: "You have already booked another bike", 
+                  message: "Please first cancel that booking")
     }
     
     func markBikeAsBooked(_ id: Int) {
         bookedBikeId = id
+        tableView.reloadData()
+    }
+    
+    func unmarkBikeAsBooked() {
+        bookedBikeId = nil
+        tableView.reloadData()
     }
     
     func showAlertParkedBike() {
-        showAlert(title: "You've successfully parked your bike!", message: "Feel free to book another at any time")
+        showAlert(title: "You've successfully parked your bike!",
+                  message: "Feel free to book another one at any time")
+    }
+    
+    func showRidingAlert() {
+        showAlert(title: "Booking is impossible",
+                  message: "You have already started a ride. To book another bike, please park you first one")
+    }
+    
+    func prepareToGoToBooking() {
+        viewWillDisappearCount += 1
     }
     
     func show(loading: Bool) {
@@ -121,18 +151,12 @@ extension StationViewController {
                 cell.bookBikeButton.rx.tap.asAction()
                     .drive(onNext: { [weak self] _ in
                         self?.bookSignal.onNext(row)
+                        
                     })
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
     }
     
 }

@@ -9,6 +9,7 @@
 import ModelLayer
 
 class StationSceneNavigator: BaseNavigator, StationNavigator {
+    
     func back() {
         scene.pop()
     }

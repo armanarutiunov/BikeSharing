@@ -11,6 +11,7 @@ import RxSwift
 public protocol BookingService {
     func bookBike(_ bike: Bike) -> Observable<Void>
     func getBookedBike() -> Observable<Bike?>
+    func cancelBooking() -> Observable<Void>
     func startRide(_ bike: Bike) -> Observable<Void>
     func getRidingBike() -> Observable<Bike?>
     func endRide() -> Observable<Void>

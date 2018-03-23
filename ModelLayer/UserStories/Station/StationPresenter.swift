@@ -9,6 +9,18 @@
 import RxSwift
 import RxCocoa
 
+/*
+ 
+ /// Баги
+ 5. когда букаешь байк и переходишь на другую станцию, показывает тот же байк забукенным
+ 6. после того, как начал поездку, если вернуться в станцию он все равно показывает 15 свободных и 15 занятых мест
+ 
+ 
+ /// Импрувы
+ 4. на экране карты добавить работу с зеленой вьюшкой
+ 
+ */
+
 public class StationPresenter<V: StationViewIO>: Presenter<V> {
     
     private let interactor: StationInteractor
@@ -16,6 +28,8 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     private let station: Station
     private let bikes = BehaviorRelay<[Bike]>(value: [Bike]())
     private let bookedBike = BehaviorRelay<Bike?>(value: nil)
+    private let ridingBike = BehaviorRelay<Bike?>(value: nil)
+    private let markedBike = BehaviorRelay<Bike?>(value: nil)
     
     public init(interactor: StationInteractor, navigator: StationNavigator, station: Station) {
         self.interactor = interactor
@@ -26,45 +40,26 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
     override func setup() {
         bikes.accept(station.bikes)
         viewIO?.showStationId("\(station.id)")
-        self.viewIO?.updateFreeBikesCounter(self.bikes.value.count)
-        self.viewIO?.updateFreeSpaceCounter(self.station.capacity - self.bikes.value.count)
+        viewIO?.updateFreeBikesCounter(bikes.value.count)
+        viewIO?.updateFreeSpaceCounter(station.capacity - bikes.value.count)
     }
     
     override func viewAttached() -> Disposable {
         guard let viewIO = viewIO else { return Disposables.create() }
         
-        let ridingBike = interactor.getRidingBike().asDriver(onErrorDriveWith: .never())
-        let bookedBike = interactor.getBookedBike().asDriver(onErrorDriveWith: .never())
+        let myBikes = Observable.combineLatest(interactor.getBookedBike().asObservable(),
+                                               interactor.getRidingBike().asObservable()) { ($0, $1) }
+            .asDriver(onErrorDriveWith: .never())
         
         return disposable(
-            ridingBike.drive(onNext: { bike in
-                viewIO.toggleParkButton(bike != nil)
-            }),
-            bookedBike.drive(onNext: { [weak self] bike in
-                guard let `self` = self else { return }
-                if let bike = bike {
-                    self.bookedBike.accept(bike)
-                    self.bikes.value.forEach {
-                        if $0.id == bike.id {
-                            viewIO.markBikeAsBooked($0.id)
-                        }
-                    }
-                }
-                viewIO.showBikes(self.bikes.value)
+            myBikes.drive(onNext: { [weak self] booked, riding in
+                self?.handleMyBikes(booked: booked, riding: riding)
             }),
             viewIO.backButtonPressed.drive(onNext: { [weak self] in
                 self?.navigator.back()
             }),
             viewIO.bookBike.drive(onNext: { [weak self] index in
-                guard let `self` = self else { return }
-                let bike = self.bikes.value[index]
-                if self.bookedBike.value == nil {
-                    self.bookBike(bike)
-                } else if bike.id == self.bookedBike.value?.id {
-                    self.navigator.toBooking()
-                } else {
-                    viewIO.showAlreadyBookedAlert()
-                }
+                self?.bookBikePressed(at: index)
             }),
             viewIO.parkBike.drive(onNext: { [weak self] in
                 self?.parkBike()
@@ -72,15 +67,46 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
         )
     }
     
+    private func handleMyBikes(booked: Bike?, riding: Bike?) {
+        viewIO?.toggleParkButton(riding != nil)
+        if let riding = riding { ridingBike.accept(riding) }
+        if let bike = booked {
+            bookedBike.accept(bike)
+            bikes.value.forEach {
+                if $0.id == bike.id {
+                    markedBike.accept(bike)
+                    viewIO?.markBikeAsBooked($0.id)
+                }
+            }
+        } else if markedBike.value != nil {
+            viewIO?.unmarkBikeAsBooked()
+            markedBike.accept(nil)
+        }
+        viewIO?.showBikes(bikes.value)
+    }
+    
+    private func bookBikePressed(at index: Int) {
+        let bike = bikes.value[index]
+        if bookedBike.value == nil && ridingBike.value == nil {
+            bookBike(bike)
+        } else if self.ridingBike.value != nil {
+            viewIO?.showRidingAlert()
+        } else if bike.id == bookedBike.value?.id {
+            navigator.toBooking()
+            viewIO?.prepareToGoToBooking()
+        } else {
+            viewIO?.showAlreadyBookedAlert()
+        }
+    }
+    
     private func bookBike(_ bike: Bike) {
         interactor.bookBike(bike)
             .subscribe(
                 onNext: { [weak self] in
                     guard let `self` = self else { return }
-                    let newBikesAmount = self.bikes.value.count - 1
-                    self.viewIO?.updateFreeBikesCounter(newBikesAmount)
-                    self.viewIO?.updateFreeSpaceCounter(self.station.capacity - newBikesAmount)
+                    self.updateSpaceCounters(bikesAmount: self.bikes.value.count - 1)
                     self.navigator.toBooking()
+                    self.viewIO?.prepareToGoToBooking()
             })
             .disposed(by: disposeBag)
     }
@@ -90,13 +116,19 @@ public class StationPresenter<V: StationViewIO>: Presenter<V> {
             .subscribe(
                 onNext: { [weak self] in
                     guard let `self` = self else { return }
-                    let newBikesAmount = self.bikes.value.count + 1
-                    self.viewIO?.updateFreeBikesCounter(newBikesAmount)
-                    self.viewIO?.updateFreeSpaceCounter(self.station.capacity - newBikesAmount)
+                    let bikes = self.bikes.value + [self.ridingBike.value!]
+                    self.viewIO?.showBikes(bikes)
+                    self.updateSpaceCounters(bikesAmount: bikes.count)
+                    self.ridingBike.accept(nil)
                     self.viewIO?.toggleParkButton(false)
                     self.viewIO?.showAlertParkedBike()
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func updateSpaceCounters(bikesAmount: Int) {
+        self.viewIO?.updateFreeBikesCounter(bikesAmount)
+        self.viewIO?.updateFreeSpaceCounter(self.station.capacity - bikesAmount)
     }
     
 }

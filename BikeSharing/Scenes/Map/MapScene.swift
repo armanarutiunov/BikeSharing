@@ -15,7 +15,8 @@ class MapScene: Scene {
         return Container(parent: parent) { container in
             container.register(MapInteractor.self) { r in
                 MapInteractor(executors: r.resolve(Executors.self)!,
-                              stationService: r.resolve(StationService.self)!)
+                              stationService: r.resolve(StationService.self)!,
+                              bookingService: r.resolve(BookingService.self)!)
             }
             container.register(MapPresenter.self) { r -> MapPresenter<MapViewController> in
                 MapPresenter(interactor: r.resolve(MapInteractor.self)!,

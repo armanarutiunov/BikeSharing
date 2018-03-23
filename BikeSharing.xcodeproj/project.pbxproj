@@ -50,8 +50,6 @@
 		0120EAC72061E5420039907D /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC62061E5420039907D /* Station.swift */; };
 		0120EAC92061E6DC0039907D /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EAC82061E6DC0039907D /* Bike.swift */; };
 		0120EACB2061E8460039907D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACA2061E8460039907D /* Location.swift */; };
-		0120EACE2061F4490039907D /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACD2061F4490039907D /* StatusView.swift */; };
-		0120EAD02061FC450039907D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120EACF2061FC450039907D /* State.swift */; };
 		0184799B206327A600399CC3 /* BookingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184799A206327A600399CC3 /* BookingScene.swift */; };
 		0184799D206327FF00399CC3 /* BookingSceneNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184799C206327FF00399CC3 /* BookingSceneNavigator.swift */; };
 		018479A02063283900399CC3 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184799E2063283900399CC3 /* BookingViewController.swift */; };
@@ -174,8 +172,6 @@
 		0120EAC62061E5420039907D /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		0120EAC82061E6DC0039907D /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
 		0120EACA2061E8460039907D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		0120EACD2061F4490039907D /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		0120EACF2061FC450039907D /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		0184799A206327A600399CC3 /* BookingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingScene.swift; sourceTree = "<group>"; };
 		0184799C206327FF00399CC3 /* BookingSceneNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingSceneNavigator.swift; sourceTree = "<group>"; };
 		0184799E2063283900399CC3 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -445,7 +441,6 @@
 				0120EAC62061E5420039907D /* Station.swift */,
 				0120EACA2061E8460039907D /* Location.swift */,
 				0120EAC82061E6DC0039907D /* Bike.swift */,
-				0120EACF2061FC450039907D /* State.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -509,7 +504,6 @@
 		0120EACC2061F42B0039907D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0120EACD2061F4490039907D /* StatusView.swift */,
 				01B5E3CF2062C81F005D7A30 /* Cells */,
 			);
 			path = Views;
@@ -1014,7 +1008,6 @@
 				01B5E3BE2062AC9E005D7A30 /* StationSceneNavigator.swift in Sources */,
 				01B5E3D22062C832005D7A30 /* BikeCell.swift in Sources */,
 				0120EAB62061D5500039907D /* MapViewController.swift in Sources */,
-				0120EACE2061F4490039907D /* StatusView.swift in Sources */,
 				01B5E3C12062ACAE005D7A30 /* StationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1036,7 +1029,6 @@
 				01B5E3CD2062AD91005D7A30 /* StationViewIO.swift in Sources */,
 				0120EA852061B77A0039907D /* ViewIO.swift in Sources */,
 				0120EAC72061E5420039907D /* Station.swift in Sources */,
-				0120EAD02061FC450039907D /* State.swift in Sources */,
 				01B5E3D42062CCDA005D7A30 /* Colors+Extras.swift in Sources */,
 				0120EACB2061E8460039907D /* Location.swift in Sources */,
 				01F8DFEB206329ED00A2A57F /* BookingService.swift in Sources */,

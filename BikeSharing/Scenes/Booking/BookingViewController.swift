@@ -19,6 +19,7 @@ class BookingViewController: ViewController {
     @IBOutlet weak var timeLeft: UILabel!
     @IBOutlet weak var pin: UILabel!
     @IBOutlet weak var startRideButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     var presenter: BookingPresenter<BookingViewController>!
     
@@ -56,6 +57,10 @@ extension BookingViewController: BookingViewIO {
         return startRideOkSignal.asDriver(onErrorDriveWith: .never())
     }
     
+    var cancelButtonPressed: Action {
+        return cancelButton.rx.tap.asAction()
+    }
+    
     func showTitle(_ title: String) {
         titleLabel.text = title
     }
@@ -74,14 +79,18 @@ extension BookingViewController: BookingViewIO {
     }
     
     func showExpirationAlert() {
-        showAlert(title: "Your booking is expired", message: "Please book a new bike")
+        showAlert(title: "Your booking is expired",
+                  message: "Please book a new bike",
+                  alertAction: { [weak self] _ in self?.alertOkSignal.onNext(())})
     }
     
     func showStartRideAlert() {
         timer.invalidate()
         timeLeft.isHidden = true
         bookingWillExpireLabel.text = "Ride has already started!"
-        showAlert(title: "Congrats!", message: "You started a new ride!")
+        showAlert(title: "Congrats!",
+                  message: "You started a new ride!",
+                  alertAction: { [weak self] _ in self?.startRideOkSignal.onNext(())})
     }
     
     func show(loading: Bool) { }
@@ -92,6 +101,8 @@ extension BookingViewController {
     private func setupView() {
         backButton.imageView?.tintColor = UIColor.white
         startRideButton.layer.cornerRadius = 6
+        cancelButton.layer.cornerRadius = 6
+        timeLeft.isHidden = true
     }
     
     private func runTimer() {
@@ -106,17 +117,7 @@ extension BookingViewController {
         }
         time = time - 1
         timeLeft.text = "\(time.string)"
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            message == "Please book a new bike" ?
-                self?.alertOkSignal.onNext(()) :
-                self?.startRideOkSignal.onNext(())
-        })
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+        timeLeft.isHidden = false
     }
     
 }

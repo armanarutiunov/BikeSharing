@@ -23,15 +23,15 @@ public class BookingInteractor: Interactor {
         )
     }
     
-    public func startRide(_ bike: Bike) -> Observable<Void> {
+    public func cancelBooking() -> Observable<Void> {
         return applySchedulers(
-            bookingService.startRide(bike)
+            bookingService.cancelBooking()
         )
     }
     
-    public func endRide() -> Observable<Void> {
+    public func startRide(_ bike: Bike) -> Observable<Void> {
         return applySchedulers(
-            bookingService.endRide()
+            bookingService.startRide(bike)
         )
     }
 }

@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="BikeSharing" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="KH1-zr-ylG" id="33H-re-gvO"/>
-                <outlet property="statusView" destination="PLP-7h-2sI" id="2og-FH-Iva"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,65 +37,20 @@
                         <constraint firstItem="Mqf-Xw-oGG" firstAttribute="centerX" secondItem="68p-9r-A7d" secondAttribute="centerX" id="nWz-DO-FC4"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLP-7h-2sI" customClass="StatusView" customModule="BikeSharing" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking will expire in 09:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsD-iG-Nn7">
-                            <rect key="frame" x="25" y="13.5" width="198" height="18"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebl-as-GBo">
-                            <rect key="frame" x="248" y="0.0" width="47" height="44"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Look">
-                                <color key="titleColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are on a ride for 09:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQj-ag-VQN">
-                            <rect key="frame" x="65" y="13" width="190.5" height="18"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.34509803919999998" green="0.77647058820000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="rQj-ag-VQN" firstAttribute="centerY" secondItem="PLP-7h-2sI" secondAttribute="centerY" id="2G3-Jl-OQx"/>
-                        <constraint firstItem="ebl-as-GBo" firstAttribute="top" secondItem="PLP-7h-2sI" secondAttribute="top" id="30z-Di-CUf"/>
-                        <constraint firstAttribute="bottom" secondItem="ebl-as-GBo" secondAttribute="bottom" id="ArX-0V-voW"/>
-                        <constraint firstItem="PsD-iG-Nn7" firstAttribute="leading" secondItem="PLP-7h-2sI" secondAttribute="leading" constant="25" id="Bac-74-BJU"/>
-                        <constraint firstItem="PsD-iG-Nn7" firstAttribute="centerY" secondItem="PLP-7h-2sI" secondAttribute="centerY" id="L4U-Tb-uug"/>
-                        <constraint firstItem="ebl-as-GBo" firstAttribute="leading" secondItem="PsD-iG-Nn7" secondAttribute="trailing" constant="25" id="LNI-ZX-nUb"/>
-                        <constraint firstAttribute="height" constant="44" id="XFG-3e-KPh"/>
-                        <constraint firstItem="rQj-ag-VQN" firstAttribute="centerX" secondItem="PLP-7h-2sI" secondAttribute="centerX" id="kHn-yU-V3C"/>
-                        <constraint firstAttribute="trailing" secondItem="ebl-as-GBo" secondAttribute="trailing" constant="25" id="ziW-Vs-CIT"/>
-                    </constraints>
-                    <connections>
-                        <outlet property="bookingLabel" destination="PsD-iG-Nn7" id="WPw-DE-c2x"/>
-                        <outlet property="heightConstraint" destination="XFG-3e-KPh" id="G31-jy-fFn"/>
-                        <outlet property="lookButton" destination="ebl-as-GBo" id="imR-QH-caz"/>
-                        <outlet property="rideLabel" destination="rQj-ag-VQN" id="Zmd-vJ-6AH"/>
-                    </connections>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH1-zr-ylG" customClass="GMSMapView">
-                    <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.2666666667" green="0.26274509800000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="68p-9r-A7d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1Kg-mH-dok"/>
-                <constraint firstItem="PLP-7h-2sI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2NP-ge-Hgn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PLP-7h-2sI" secondAttribute="trailing" id="5lp-UX-N8S"/>
-                <constraint firstItem="KH1-zr-ylG" firstAttribute="top" secondItem="PLP-7h-2sI" secondAttribute="bottom" id="8Jx-sS-rsi"/>
                 <constraint firstItem="68p-9r-A7d" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EpY-5j-zWn"/>
                 <constraint firstItem="68p-9r-A7d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FpY-vj-5KH"/>
                 <constraint firstItem="KH1-zr-ylG" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="M1X-sb-aaj"/>
                 <constraint firstItem="KH1-zr-ylG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bYU-gk-1KV"/>
+                <constraint firstItem="KH1-zr-ylG" firstAttribute="top" secondItem="68p-9r-A7d" secondAttribute="bottom" id="gKF-fh-CxG"/>
                 <constraint firstItem="KH1-zr-ylG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="mYG-1f-V4f"/>
-                <constraint firstItem="PLP-7h-2sI" firstAttribute="top" secondItem="68p-9r-A7d" secondAttribute="bottom" id="sjF-YF-Rb1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>

@@ -23,6 +23,9 @@ public protocol BookingViewIO: ViewIO {
     /// Start ride ok alert
     var startRideOkAlert: Action { get }
     
+    /// User wants to cancel the booking
+    var cancelButtonPressed: Action { get }
+    
     /// Show title
     func showTitle(_ title: String)
     

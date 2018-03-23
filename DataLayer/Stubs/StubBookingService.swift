@@ -33,6 +33,12 @@ public class StubBookingService: BookingService {
         }
     }
     
+    public func cancelBooking() -> Observable<Void> {
+        return Observable.just(0).map { _ in
+            UserDefaults.standard.removeObject(forKey: self.bookedBikeKey)
+        }
+    }
+    
     public func startRide(_ bike: Bike) -> Observable<Void> {
         return Observable.just(0).map { [weak self] _ in
             guard let `self` = self else { return }

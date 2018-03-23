@@ -35,9 +35,6 @@ public class MapPresenter<V: MapViewIO>: Presenter<V> {
                         viewIO.showError(ErrorWithRecovery(error.localizedDescription))
                     }
                 ),
-            viewIO.timerFinished.drive(onNext: { _ in
-                
-            }),
             viewIO.stationTapped.drive(onNext: { [weak self] station in
                 self?.navigator.toStation(station)
             })

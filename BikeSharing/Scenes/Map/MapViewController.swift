@@ -14,7 +14,6 @@ import GoogleMaps
 
 class MapViewController: ViewController {
     
-    @IBOutlet weak var statusView: StatusView!
     @IBOutlet weak var mapView: GMSMapView!
     
     var presenter: MapPresenter<MapViewController>!
@@ -32,10 +31,6 @@ class MapViewController: ViewController {
 
 extension MapViewController: MapViewIO {
     
-    var timerFinished: Action {
-        return statusView.timerFinishSignal.asDriver(onErrorDriveWith: .never())
-    }
-    
     var stationTapped: Driver<Station> {
         return stationTappedSignal.asDriver(onErrorDriveWith: .never())
     }
@@ -44,16 +39,9 @@ extension MapViewController: MapViewIO {
         createMarkers(for: stations)
     }
     
-    func updateStatus(state: State, time: TimeInterval?) {
-        statusView.state = state
-        if let time = time {
-            statusView.time = time
-        }
-    }
-    
-    func endedRide() {
-        statusView.state = .closed
-        statusView.stopwatch.invalidate()
+    func showTimerFinishedAlert() {
+        showAlert(title: "Your booking is expired",
+                  message: "Please book a new bike")
     }
     
     func show(loading: Bool) {}

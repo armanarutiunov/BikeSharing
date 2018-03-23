@@ -13,6 +13,7 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
     
     private let interactor: BookingInteractor
     private let navigator: BookingNavigator
+    
     private let bike = BehaviorRelay<Bike>(value: Bike(id: 1, name: "", frameColor: .blue, pin: 1111))
     
     public init(interactor: BookingInteractor, navigator: BookingNavigator) {
@@ -23,10 +24,6 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
     override func setup() {
         
     }
-    
-    // create booking with: bike, time until
-    // start a ride: bike, time started
-    // end ride: bike, station
     
     override func viewAttached() -> Disposable {
         guard let viewIO = viewIO else { return Disposables.create() }
@@ -50,10 +47,13 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
                 viewIO.showExpirationAlert()
             }),
             viewIO.alertOkPressed.drive(onNext: { [weak self] in
-                self?.endRide()
+                self?.cancelBooking()
             }),
             viewIO.startRideOkAlert.drive(onNext: { [weak self] in
                 self?.navigator.backToMap()
+            }),
+            viewIO.cancelButtonPressed.drive(onNext: { [weak self] in
+                self?.cancelBooking()
             })
         )
     }
@@ -82,10 +82,10 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
             .disposed(by: disposeBag)
     }
     
-    private func endRide() {
-        interactor.endRide()
+    private func cancelBooking() {
+        interactor.cancelBooking()
             .subscribe(onNext: { [weak self] in
-                self?.navigator.back()
+                self?.navigator.backToMap()
             })
             .disposed(by: disposeBag)
     }

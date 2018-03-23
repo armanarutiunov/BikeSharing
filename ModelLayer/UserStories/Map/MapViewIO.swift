@@ -10,20 +10,11 @@ import RxCocoa
 
 public protocol MapViewIO: ViewIO {
     
-    /// Booking timer finished
-    var timerFinished: Action { get }
-    
     /// User tapped station
     var stationTapped: Driver<Station> { get }
     
     /// Show stations on the map
     func showStations(_ stations: [Station])
-    
-    /// Update status view and pass time for timers
-    func updateStatus(state: State, time: TimeInterval?)
-    
-    /// User ended ride
-    func endedRide()
     
     /// Show Error
     func showError(_ error: ErrorWithRecovery)

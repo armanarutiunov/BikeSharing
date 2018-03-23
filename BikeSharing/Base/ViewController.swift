@@ -112,6 +112,17 @@ public class ViewController: UIViewController {
             }
         }
     }
+    
+    public typealias AlertAction = ((UIAlertAction) -> Void)
+    
+    func showAlert(title: String, message: String, alertAction: AlertAction? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = alertAction != nil ?
+            UIAlertAction(title: "OK", style: .default, handler: alertAction!) :
+            UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 
 }
 
