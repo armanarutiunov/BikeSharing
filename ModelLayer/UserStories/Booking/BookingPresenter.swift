@@ -59,15 +59,7 @@ public class BookingPresenter<V: BookingViewIO>: Presenter<V> {
     }
     
     private func setupView(_ bike: Bike) {
-        let color: UIColor
-        switch bike.frameColor {
-        case .blue:
-            color = UIColor.cobiBlue
-        case .green:
-            color = UIColor.greenBike
-        case .red:
-            color = UIColor.redBike
-        }
+        let color = bike.color
         viewIO?.configureBikeColor(color)
         let bookingExpiration = bike.bookingExpiration ?? Date().timeIntervalSince1970 + 600
         viewIO?.showTimeLeft(bookingExpiration - Date().timeIntervalSince1970)

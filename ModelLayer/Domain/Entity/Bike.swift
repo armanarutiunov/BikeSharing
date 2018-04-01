@@ -21,6 +21,17 @@ public struct Bike {
         self.frameColor = frameColor
         self.pin = pin
     }
+    
+    public var color: UIColor {
+        switch frameColor {
+        case .blue:
+            return UIColor.cobiBlue
+        case .green:
+            return UIColor.greenBike
+        case .red:
+            return UIColor.redBike
+        }
+    }
 }
 
 public enum FrameColor: String {

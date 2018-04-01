@@ -25,14 +25,7 @@ class BikeCell: UITableViewCell {
     var bike: Bike! {
         didSet {
             guard let bike = bike else { return }
-            switch bike.frameColor {
-            case .blue:
-                icon.tintColor = UIColor.cobiBlue
-            case .green:
-                icon.tintColor = UIColor.greenBike
-            case .red:
-                icon.tintColor = UIColor.redBike
-            }
+            icon.tintColor = bike.color
             name.text = bike.name
         }
     }
